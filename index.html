@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AKSHAY JEWELLERS | 925 Pure Hallmark Silver</title>
+  <title>AKSHAY JEWELLERS | 925 Hallmark Pure Silver Atelier</title>
 
-  <!-- Google Luxury Fonts -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,27 +22,25 @@
           colors: {
             palace: {
               ivory: '#FAF8F5',
-              sand: '#F3EFE6',
+              sand: '#F5EFE6',
               card: '#FFFFFF',
-              navy: '#0F1E36',
-              border: '#E2DBD0',
+              navy: '#0E1A2F',
+              border: '#E3DAC9',
+              gold: '#C59B27',
+              red: '#9E2A2B'
             },
             silver: {
               hallmark: '#1E293B',
-              matte: '#64748B',
+              matte: '#5A6A80',
               shimmer: '#94A3B8',
-              line: '#CBD5E1',
-            },
-            rajputana: {
-              vermilion: '#9E2A2B',
-              goldleaf: '#C59B27',
+              line: '#E2E8F0'
             }
           },
           fontFamily: {
-            italiana: ['"Italiana"', 'serif'],
+            orra: ['"Montserrat"', 'sans-serif'],
+            body: ['"Jost"', 'sans-serif'],
             cinzel: ['"Cinzel"', 'serif'],
-            cormorant: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif']
           }
         }
       }
@@ -50,234 +48,288 @@
   </script>
 
   <style>
-    /* 3D Haveli Gate Perspective */
-    .door-perspective {
-      perspective: 1400px;
-    }
+    .door-perspective { perspective: 1400px; }
     
     .gate-panel {
       transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-      background: linear-gradient(135deg, #F8F5EE 0%, #EDE6D8 50%, #DED4C0 100%);
-      box-shadow: inset 0 0 50px rgba(15, 30, 54, 0.15);
+      background: linear-gradient(145deg, #2b1704 0%, #4a270a 40%, #1e0e02 100%);
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.7);
     }
 
-    .left-gate {
-      transform-origin: left center;
-      border-right: 2px solid #C59B27;
+    .left-gate { transform-origin: left center; border-right: 3px solid #C59B27; }
+    .right-gate { transform-origin: right center; border-left: 3px solid #C59B27; }
+
+    .gate-opened-left { transform: rotateY(-115deg) translateZ(30px); opacity: 0; pointer-events: none; }
+    .gate-opened-right { transform: rotateY(115deg) translateZ(30px); opacity: 0; pointer-events: none; }
+
+    .brass-stud {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff1a8 0%, #C59B27 60%, #684a08 100%);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
 
-    .right-gate {
-      transform-origin: right center;
-      border-left: 2px solid #C59B27;
-    }
-
-    .gate-opened-left {
-      transform: rotateY(-115deg) translateZ(30px);
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .gate-opened-right {
-      transform: rotateY(115deg) translateZ(30px);
-      opacity: 0;
-      pointer-events: none;
+    .leheriya-strip {
+      height: 10px;
+      background: repeating-linear-gradient(45deg, #9E2A2B, #9E2A2B 8px, #C59B27 8px, #C59B27 16px, #0E1A2F 16px, #0E1A2F 24px, #FAF8F5 24px, #FAF8F5 30px);
+      width: 100%;
     }
 
     .marble-pattern {
       background-color: #FAF8F5;
-      background-image: radial-gradient(#E5DFD3 0.75px, transparent 0.75px);
+      background-image: radial-gradient(#E5DDD0 0.8px, transparent 0.8px);
       background-size: 20px 20px;
     }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @keyframes successPop {
+      0% { transform: scale(0.4); opacity: 0; }
+      70% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-success-pop {
+      animation: successPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* RED SECURITY ALERT SHAKE & FLASH */
+    @keyframes alertShake {
+      0%, 100% { transform: translateX(0); }
+      15%, 45%, 75% { transform: translateX(-9px); }
+      30%, 60%, 90% { transform: translateX(9px); }
+    }
+    .animate-alert-shake {
+      animation: alertShake 0.45s ease-in-out;
+    }
+
+    @keyframes redStrobe {
+      0%, 100% { background-color: rgba(220, 38, 38, 0.2); }
+      50% { background-color: rgba(220, 38, 38, 0.5); }
+    }
+    .animate-red-strobe {
+      animation: redStrobe 0.3s infinite ease-in-out;
+    }
   </style>
 </head>
-<body class="marble-pattern text-palace-navy font-sans antialiased selection:bg-palace-sand overflow-x-hidden">
+<body class="marble-pattern text-palace-navy font-body antialiased selection:bg-palace-sand overflow-x-hidden">
 
-  <!-- ======================================================== -->
-  <!-- 3D HAVELI GATE WITH OFFICIAL LOGO & WELCOME BADGE        -->
-  <!-- ======================================================== -->
+  <!-- ============================================== -->
+  <!-- 3D HAVELI GATE ENTRANCE                       -->
+  <!-- ============================================== -->
   <div id="gateContainer" onclick="openHaveliGates()" class="fixed inset-0 z-50 door-perspective flex pointer-events-auto cursor-pointer">
     
     <!-- LEFT GATE -->
-    <div id="gateLeft" class="gate-panel left-gate w-1/2 h-full relative flex items-center justify-end pr-5 sm:pr-12 border-y-8 border-l-8 border-palace-navy/20">
-      <div class="absolute inset-4 border-2 border-rajputana-goldleaf/40 rounded-l-2xl pointer-events-none flex flex-col justify-around py-12 px-4 opacity-40">
-        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
-        <div class="w-12 h-12 rounded-full border-2 border-rajputana-goldleaf mx-auto"></div>
-        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+    <div id="gateLeft" class="gate-panel left-gate w-1/2 h-full relative flex items-center justify-end pr-3 sm:pr-8 border-y-8 border-l-8 border-palace-navy/40">
+      <div class="absolute inset-3 sm:inset-6 border-4 border-palace-gold/60 rounded-l-2xl pointer-events-none flex flex-col justify-between py-6 px-3 bg-black/20">
+        <div class="flex justify-around"><span class="brass-stud"></span><span class="brass-stud"></span><span class="brass-stud"></span></div>
+        <div class="border-2 border-palace-gold/40 rounded-t-full h-40 sm:h-64 flex flex-col items-center justify-center p-2 bg-gradient-to-b from-palace-gold/10 to-transparent">
+          <svg class="w-10 h-10 sm:w-16 sm:h-16 fill-palace-gold/70" viewBox="0 0 64 64"><path d="M52 24c-2-6-8-10-15-10-6 0-11 3-14 8-1-1-3-2-5-2-5 0-9 4-9 9 0 2 1 4 2 5l-1 12h6v-8c2 2 5 3 8 3h4v8h6v-8h3v8h6v-12c5-1 9-5 9-10z"/></svg>
+          <span class="font-cinzel text-[10px] sm:text-xs text-palace-gold tracking-[0.2em] mt-2 uppercase">शाही किवाड़</span>
+        </div>
+        <div class="flex justify-around"><span class="brass-stud"></span><span class="brass-stud"></span><span class="brass-stud"></span></div>
       </div>
-      <!-- Brass Door Ring -->
-      <div class="w-11 h-11 sm:w-16 sm:h-16 rounded-full border-4 border-rajputana-goldleaf flex items-center justify-center bg-palace-sand shadow-lg z-10">
-        <div class="w-4 h-4 rounded-full bg-palace-navy"></div>
+      <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-4 border-palace-gold flex items-center justify-center bg-gradient-to-br from-amber-200 to-amber-700 shadow-2xl z-10">
+        <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-palace-navy bg-palace-gold"></div>
       </div>
     </div>
 
     <!-- RIGHT GATE -->
-    <div id="gateRight" class="gate-panel right-gate w-1/2 h-full relative flex items-center justify-start pl-5 sm:pl-12 border-y-8 border-r-8 border-palace-navy/20">
-      <div class="absolute inset-4 border-2 border-rajputana-goldleaf/40 rounded-r-2xl pointer-events-none flex flex-col justify-around py-12 px-4 opacity-40">
-        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
-        <div class="w-12 h-12 rounded-full border-2 border-rajputana-goldleaf mx-auto"></div>
-        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+    <div id="gateRight" class="gate-panel right-gate w-1/2 h-full relative flex items-center justify-start pl-3 sm:pl-8 border-y-8 border-r-8 border-palace-navy/40">
+      <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-4 border-palace-gold flex items-center justify-center bg-gradient-to-br from-amber-200 to-amber-700 shadow-2xl z-10">
+        <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-palace-navy bg-palace-gold"></div>
       </div>
-      <!-- Brass Door Ring -->
-      <div class="w-11 h-11 sm:w-16 sm:h-16 rounded-full border-4 border-rajputana-goldleaf flex items-center justify-center bg-palace-sand shadow-lg z-10">
-        <div class="w-4 h-4 rounded-full bg-palace-navy"></div>
+      <div class="absolute inset-3 sm:inset-6 border-4 border-palace-gold/60 rounded-r-2xl pointer-events-none flex flex-col justify-between py-6 px-3 bg-black/20">
+        <div class="flex justify-around"><span class="brass-stud"></span><span class="brass-stud"></span><span class="brass-stud"></span></div>
+        <div class="border-2 border-palace-gold/40 rounded-t-full h-40 sm:h-64 flex flex-col items-center justify-center p-2 bg-gradient-to-b from-palace-gold/10 to-transparent">
+          <svg class="w-10 h-10 sm:w-16 sm:h-16 fill-palace-gold/70" viewBox="0 0 64 64"><path d="M54 22c-2-3-5-5-8-5-3 0-5 2-7 4-2-2-5-3-8-3-4 0-7 2-9 5l-4-2c-2-1-4 0-5 2l-2 4 4 2 2-3 2 1-3 10 3 2 4-7c2-1 4-1 6 0l2 8h6v-8h4v8h6v-12c4-1 7-4 7-7z"/></svg>
+          <span class="font-cinzel text-[10px] sm:text-xs text-palace-gold tracking-[0.2em] mt-2 uppercase">राजपूताना</span>
+        </div>
+        <div class="flex justify-around"><span class="brass-stud"></span><span class="brass-stud"></span><span class="brass-stud"></span></div>
       </div>
     </div>
 
-    <!-- CENTER WELCOME BADGE WITH AKSHAY JEWELLERS LOGO -->
-    <div id="welcomeBadge" class="absolute inset-0 m-auto w-11/12 max-w-sm h-fit py-7 px-6 rounded-3xl bg-white/95 backdrop-blur-md border border-rajputana-goldleaf/50 shadow-2xl text-center z-30 transition-all duration-500">
-      
-      <!-- Logo Image Display -->
-      <div class="w-20 h-20 mx-auto mb-3 rounded-full border-2 border-rajputana-goldleaf p-1 shadow-md bg-white overflow-hidden flex items-center justify-center">
-        <img src="logo.png" alt="Akshay Jewellers" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80'" class="w-full h-full object-cover rounded-full">
+    <!-- CENTER WELCOME BADGE -->
+    <div id="welcomeBadge" class="absolute inset-0 m-auto w-11/12 max-w-sm h-fit py-7 px-6 rounded-3xl bg-white/95 backdrop-blur-md border-2 border-palace-gold shadow-2xl text-center z-30 transition-all duration-500">
+      <div class="w-20 h-20 mx-auto mb-3 rounded-full border-2 border-palace-gold p-1 shadow-md bg-white overflow-hidden flex items-center justify-center">
+        <img src="logo.png" alt="Akshay Jewellers" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80';" class="w-full h-full object-cover rounded-full">
       </div>
-
-      <h2 class="font-cinzel text-xs tracking-[0.3em] text-silver-matte uppercase mb-1">
-        Welcome to
-      </h2>
-      <h1 class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] text-palace-navy uppercase mb-1">
-        AKSHAY JEWELLERS
-      </h1>
-      <p class="font-cormorant italic text-sm text-rajputana-goldleaf mb-5">
-        925 Pure Hallmark Silver Atelier
-      </p>
-
-      <!-- Pulsating Tap Button -->
+      <h2 class="font-orra text-[11px] tracking-[0.35em] text-silver-matte uppercase mb-1 font-semibold">Welcome to</h2>
+      <h1 class="font-cinzel text-2xl font-bold tracking-[0.18em] text-palace-navy uppercase mb-1">AKSHAY JEWELLERS</h1>
+      <p class="font-cormorant italic text-base text-palace-gold mb-5">925 Pure Hallmark Silver Atelier</p>
+      
       <div class="py-3 px-6 rounded-full bg-palace-navy text-white shadow-xl flex items-center justify-center space-x-2 animate-bounce">
-        <i data-lucide="sparkles" class="w-4 h-4 text-rajputana-goldleaf"></i>
-        <span class="font-cinzel text-xs font-bold tracking-[0.2em] uppercase">Tap Here To Enter</span>
+        <i data-lucide="sparkles" class="w-4 h-4 text-palace-gold"></i>
+        <span class="font-orra text-xs font-bold tracking-[0.2em] uppercase">Tap Here To Enter</span>
       </div>
     </div>
 
   </div>
 
-  <!-- TOP PURITY BAR -->
-  <div class="bg-palace-sand border-b border-palace-border py-2 px-4 text-center">
-    <p class="text-[11px] sm:text-xs font-cinzel tracking-[0.2em] text-palace-navy uppercase flex items-center justify-center space-x-2">
-      <span class="text-rajputana-goldleaf">❖</span>
-      <span>100% Certified 92.5 Hallmark Shuddh Chandi • All-India Secure Express Courier</span>
-      <span class="text-rajputana-goldleaf">❖</span>
-    </p>
+  <!-- LEHERIYA STRIP -->
+  <div class="leheriya-strip"></div>
+  <div class="bg-palace-sand border-b border-palace-border py-2 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between font-orra text-[11px] tracking-wider text-palace-navy">
+      <span class="font-bold flex items-center space-x-1.5">
+        <span class="text-palace-red">🐘</span>
+        <span>MEWAR & MARWAR HERITAGE</span>
+      </span>
+      <span class="font-bold text-palace-red uppercase">100% Certified 92.5 Hallmark Silver • PhonePe Merchant UPI Verified</span>
+      <span class="font-bold flex items-center space-x-1.5">
+        <span>AUTHENTIC SILVER ATELIER</span>
+        <span class="text-palace-gold">🐪</span>
+      </span>
+    </div>
   </div>
 
-  <!-- NAVIGATION HEADER -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-palace-border">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <!-- LUXURY NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-palace-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo in Header -->
-      <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-12 h-12 rounded-full border border-rajputana-goldleaf/50 overflow-hidden bg-white shadow-sm flex items-center justify-center">
-          <img src="logo.png" alt="Akshay Jewellers" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80'" class="w-full h-full object-cover">
+      <!-- LOGO: TRIPLE CLICK OPENS SECRET ADMIN PANEL -->
+      <div onclick="handleLogoTripleTap()" class="flex items-center space-x-3 cursor-pointer select-none group" title="Akshay Jewellers">
+        <div class="w-12 h-12 rounded-full border border-palace-gold/50 overflow-hidden bg-white shadow-sm flex items-center justify-center group-hover:scale-105 transition">
+          <img src="logo.png" alt="Akshay Jewellers" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80';" class="w-full h-full object-cover">
         </div>
         <div>
           <span class="font-cinzel text-xl font-bold tracking-[0.22em] text-palace-navy block leading-none">AKSHAY</span>
-          <span class="font-cormorant text-[11px] tracking-[0.3em] text-silver-matte uppercase italic block mt-1">925 Pure Silver Atelier</span>
+          <span class="font-orra text-[10px] tracking-[0.3em] text-silver-matte uppercase block mt-1 font-semibold">925 Pure Silver Atelier</span>
         </div>
-      </a>
+      </div>
 
-      <!-- Quick Action Controls -->
-      <div class="flex items-center space-x-4 sm:space-x-5">
-        <!-- Replay Flute Melody -->
-        <button onclick="playSoftBansuri()" class="p-2 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand transition" title="Play Flute Melody">
-          <i data-lucide="music" class="w-4 h-4 text-rajputana-goldleaf"></i>
+      <!-- CONTROLS: (NO VISIBLE LOCK ICON FOR CUSTOMERS) -->
+      <div class="flex items-center space-x-3 sm:space-x-5">
+        <button onclick="openLocationModal()" class="flex items-center space-x-1.5 px-3.5 py-2 rounded-full border border-palace-border bg-palace-sand hover:bg-palace-navy hover:text-white transition group" title="Visit Offline Store">
+          <i data-lucide="map-pin" class="w-4 h-4 text-palace-red group-hover:text-white"></i>
+          <span class="font-orra text-xs font-semibold tracking-wider hidden sm:inline">Store Location</span>
         </button>
 
-        <!-- WhatsApp Support -->
-        <a href="https://wa.me/919649533041?text=Khamma%20Ghani!%20Mujhe%20Akshay%20Jewellers%20ke%20Silver%20collection%20ke%20bare%20mein%20poochna%20hai" target="_blank" class="hidden sm:flex items-center space-x-2 text-xs font-cinzel tracking-wider px-4 py-2 rounded-full border border-palace-border text-palace-navy hover:border-palace-navy transition">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
-          <span>Royal Help</span>
-        </a>
+        <button onclick="playSoftBansuri()" class="p-2.5 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand transition" title="Play Flute Melody">
+          <i data-lucide="music" class="w-4 h-4 text-palace-gold"></i>
+        </button>
 
-        <!-- Cart Button -->
-        <button onclick="toggleCart()" class="relative p-2 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand transition">
+        <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-palace-navy text-white hover:bg-palace-red transition shadow-md">
           <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-          <span id="cartCount" class="absolute -top-1 -right-1 bg-rajputana-vermilion text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-        </button>
-
-        <!-- Admin Portal Key -->
-        <button onclick="openAdmin()" class="text-silver-matte hover:text-palace-navy p-1" title="Store Access">
-          <i data-lucide="lock" class="w-4 h-4"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 bg-palace-gold text-palace-navy text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center font-orra border-2 border-white">0</span>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- LIGHT EDITORIAL HERO -->
-  <section class="relative py-16 sm:py-24 px-6 text-center border-b border-palace-border">
-    <div class="max-w-4xl mx-auto">
-      
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-palace-border bg-white mb-6 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-rajputana-vermilion"></span>
-        <span class="font-cinzel text-[11px] tracking-[0.25em] text-palace-navy uppercase">Shuddh 925 Hallmark Chandi</span>
+  <!-- CATEGORY STORY CIRCLES -->
+  <section class="border-b border-palace-border bg-white py-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between gap-6 overflow-x-auto no-scrollbar py-1">
+        
+        <div onclick="filterCategory('Payal')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Payal</span>
+        </div>
+
+        <div onclick="filterCategory('Kada & Bracelets')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Royal Kada</span>
+        </div>
+
+        <div onclick="filterCategory('Chains')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Chains</span>
+        </div>
+
+        <div onclick="filterCategory('Rings')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Rings</span>
+        </div>
+
+        <div onclick="filterCategory('Pooja Articles')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Pooja Mandir</span>
+        </div>
+
+        <div onclick="filterCategory('Necklaces')" class="flex flex-col items-center cursor-pointer group min-w-[76px]">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-palace-border group-hover:border-palace-gold p-1 overflow-hidden transition duration-300 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=300&q=80" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=300&q=80';" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition duration-500">
+          </div>
+          <span class="font-orra text-xs font-semibold text-palace-navy mt-2 tracking-wide">Pendants</span>
+        </div>
+
       </div>
-
-      <h1 class="font-italiana text-4xl sm:text-6xl md:text-7xl text-palace-navy font-normal tracking-[0.05em] uppercase mb-6 leading-tight">
-        Heirloom Silver <br>
-        <span class="font-cormorant italic text-3xl sm:text-5xl text-silver-matte lowercase font-light">of royal rajputana heritage</span>
-      </h1>
-
-      <p class="font-cormorant text-lg sm:text-2xl text-palace-navy/80 max-w-2xl mx-auto italic mb-10 leading-relaxed font-light">
-        Traditional hand-crafted silver payal, heavy rajwadi kada, sacred idols, and everyday sterling chains crafted with purity.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-cinzel tracking-[0.2em] uppercase">
-        <a href="#collection" class="w-full sm:w-auto px-8 py-3.5 bg-palace-navy text-white rounded-full hover:bg-rajputana-vermilion transition shadow-md">
-          Explore Pure Silver
-        </a>
-        <a href="#advancePolicy" class="w-full sm:w-auto px-8 py-3.5 border border-palace-navy text-palace-navy rounded-full hover:bg-palace-sand transition">
-          20% Advance COD Policy
-        </a>
-      </div>
-
     </div>
   </section>
 
-  <!-- CATEGORY SELECTOR -->
-  <section id="collection" class="max-w-7xl mx-auto px-6 py-14">
-    <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-8">
+  <!-- PRODUCT VAULT -->
+  <section id="collection" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-4">
       <div>
-        <h3 class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-palace-navy">ROYAL SILVER COLLECTION</h3>
-        <p class="font-cormorant text-base text-silver-matte italic">Pure 925 certified chandi handcrafted in Rajasthan</p>
+        <h3 id="currentVaultTitle" class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-palace-navy">925 PURE SILVER VAULT</h3>
+        <p id="currentVaultSubtitle" class="font-orra text-xs text-silver-matte mt-1">100% Certified Hallmark Ornaments with Transparent Weight</p>
       </div>
-      <span class="text-xs font-cinzel text-silver-matte tracking-widest uppercase" id="itemCountDisplay">Showing all</span>
+      <span class="text-xs font-orra font-bold text-palace-gold tracking-widest uppercase" id="itemCountDisplay">Showing all</span>
     </div>
 
-    <!-- Category Filter Chips -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar text-xs font-cinzel tracking-wider uppercase">
-      <button onclick="filterCategory('All')" class="cat-pill px-5 py-2 rounded-full border border-palace-navy bg-palace-navy text-white font-bold transition">All</button>
-      <button onclick="filterCategory('Payal')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Payal</button>
-      <button onclick="filterCategory('Kada & Bracelets')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Kada</button>
-      <button onclick="filterCategory('Chains')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Chains</button>
-      <button onclick="filterCategory('Rings')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Rings</button>
-      <button onclick="filterCategory('Pooja Articles')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pooja Silver</button>
-      <button onclick="filterCategory('Necklaces')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pendants</button>
+    <!-- MAIN CATEGORY TABS -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 no-scrollbar text-xs font-orra font-bold tracking-wider uppercase mb-2">
+      <button onclick="filterCategory('All')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-navy bg-palace-navy text-white transition">All Items</button>
+      <button onclick="filterCategory('Payal')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Payal</button>
+      <button onclick="filterCategory('Kada & Bracelets')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Kada & Bracelets</button>
+      <button onclick="filterCategory('Chains')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Chains</button>
+      <button onclick="filterCategory('Rings')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Rings</button>
+      <button onclick="filterCategory('Pooja Articles')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pooja Mandir</button>
+      <button onclick="filterCategory('Necklaces')" class="cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pendants & Hasli</button>
     </div>
 
-    <!-- PRODUCT DISPLAY GRID -->
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"></div>
+    <!-- DYNAMIC SUB-COLLECTION PILLS -->
+    <div id="subFilterContainer" class="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar text-[11px] font-orra tracking-wider"></div>
+
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7 pt-2"></div>
   </section>
 
-  <!-- ASSURANCE POLICY STRIP -->
-  <section id="advancePolicy" class="border-y border-palace-border bg-palace-sand py-16 px-6">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
-        <i data-lucide="shield-check" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
-        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">925 Hallmark Guaranteed</h4>
-        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Certified authentic 92.5% silver hallmark stamped into every single piece.</p>
+  <!-- LEHERIYA STRIP -->
+  <div class="leheriya-strip my-8"></div>
+
+  <!-- THE AKSHAY ASSURANCE -->
+  <section class="bg-white py-14 px-6 border-y border-palace-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h4 class="font-cinzel text-2xl font-bold tracking-wider text-palace-navy uppercase mb-1">The Akshay Assurance</h4>
+        <p class="font-orra text-xs text-silver-matte font-medium">Authenticity and royal trust backed by pure hallmark certification</p>
       </div>
 
-      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
-        <i data-lucide="credit-card" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
-        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">20% Booking Advance</h4>
-        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Pay only 20% token advance online; pay balance 80% with confidence at delivery.</p>
-      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div class="p-6 rounded-2xl bg-palace-sand/50 border border-palace-border">
+          <i data-lucide="award" class="w-8 h-8 mx-auto mb-3 text-palace-navy"></i>
+          <h5 class="font-orra text-xs tracking-widest uppercase font-bold text-palace-navy mb-1.5">925 BIS Hallmark</h5>
+          <p class="font-body text-xs text-silver-matte">Certified authentic silver purity stamp on every single ornament.</p>
+        </div>
 
-      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
-        <i data-lucide="package-check" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
-        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">Velvet Box Delivery</h4>
-        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Delivered across India in insured royal velvet boxes directly from Rajasthan.</p>
+        <div class="p-6 rounded-2xl bg-palace-sand/50 border border-palace-border">
+          <i data-lucide="qr-code" class="w-8 h-8 mx-auto mb-3 text-palace-navy"></i>
+          <h5 class="font-orra text-xs tracking-widest uppercase font-bold text-palace-navy mb-1.5">Official PhonePe QR</h5>
+          <p class="font-body text-xs text-silver-matte">Direct merchant payment link for full amount or 20% advance token.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-palace-sand/50 border border-palace-border">
+          <i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-3 text-palace-navy"></i>
+          <h5 class="font-orra text-xs tracking-widest uppercase font-bold text-palace-navy mb-1.5">Anti-Tarnish Polish</h5>
+          <p class="font-body text-xs text-silver-matte">Treated with high-grade rhodium barrier to preserve radiant silver shine.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-palace-sand/50 border border-palace-border">
+          <i data-lucide="package-check" class="w-8 h-8 mx-auto mb-3 text-palace-navy"></i>
+          <h5 class="font-orra text-xs tracking-widest uppercase font-bold text-palace-navy mb-1.5">Velvet Box Delivery</h5>
+          <p class="font-body text-xs text-silver-matte">Securely dispatched in insured royal velvet boxes globally from Rajasthan.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -285,149 +337,786 @@
   <!-- FOOTER -->
   <footer class="bg-white py-12 px-6 text-center border-t border-palace-border">
     <div class="max-w-6xl mx-auto">
-      <span class="font-cinzel text-xl tracking-[0.3em] text-palace-navy font-bold uppercase block mb-1">AKSHAY JEWELLERS</span>
-      <p class="font-cormorant text-sm text-silver-matte italic mb-6">Makers of Pure 925 Hallmark Silver Ornaments</p>
-      <p class="text-[11px] font-cinzel tracking-widest text-silver-matte">
-        © 2026 AKSHAY JEWELLERS • PURE 925 HALLMARK SILVER • ALL RIGHTS RESERVED
+      <span class="font-cinzel text-2xl tracking-[0.25em] text-palace-navy font-bold uppercase block mb-1">AKSHAY JEWELLERS</span>
+      <p class="font-orra text-xs text-silver-matte uppercase tracking-wider mb-4">Pure 925 Hallmark Silver Atelier • Direct Helpline: +91 7665426149</p>
+      <div class="flex justify-center items-center gap-6 font-orra text-xs font-semibold text-palace-navy mb-6">
+        <button onclick="openLocationModal()" class="hover:text-palace-red">📍 Store Location</button>
+        <span>•</span>
+        <a href="tel:7665426149" class="hover:text-palace-red">📞 Call Us</a>
+      </div>
+      <p class="text-[10px] font-orra tracking-widest text-silver-matte uppercase">
+        © 2026 AKSHAY JEWELLERS • 100% PURE 925 HALLMARK SILVER • ALL RIGHTS RESERVED
       </p>
     </div>
   </footer>
 
-  <!-- CART MODAL -->
-  <div id="cartModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
-    <div class="w-full max-w-sm bg-white h-full p-6 flex flex-col justify-between shadow-2xl">
+  <!-- CHECKOUT DRAWER -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-full max-w-md bg-white h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
       <div>
         <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-4">
           <div class="flex items-center space-x-2">
-            <i data-lucide="shopping-bag" class="w-5 h-5 text-palace-navy"></i>
-            <h3 class="font-cinzel text-base tracking-wider text-palace-navy font-bold">YOUR SILVER SELECTION</h3>
+            <i data-lucide="shopping-cart" class="w-5 h-5 text-palace-navy"></i>
+            <h3 class="font-orra text-sm font-bold tracking-wider text-palace-navy uppercase">My Silver Bag</h3>
           </div>
-          <button onclick="toggleCart()" class="text-silver-matte hover:text-palace-navy">
-            <i data-lucide="x" class="w-5 h-5"></i>
+          <button onclick="toggleCart()" class="text-silver-matte hover:text-palace-navy p-1">
+            <i data-lucide="x" class="w-6 h-6"></i>
           </button>
         </div>
 
-        <div id="cartItemsContainer" class="space-y-3 max-h-[60vh] overflow-y-auto pr-2 no-scrollbar"></div>
-      </div>
+        <div id="cartView">
+          <div id="cartItemsContainer" class="space-y-3 max-h-[45vh] overflow-y-auto pr-1 no-scrollbar"></div>
 
-      <div class="border-t border-palace-border pt-4 space-y-3 font-cinzel">
-        <div class="flex justify-between text-xs text-silver-matte">
-          <span>Total Silver Value:</span>
-          <span id="cartSubtotal" class="font-bold text-palace-navy text-sm">₹0</span>
-        </div>
-        <div class="flex justify-between text-xs text-rajputana-vermilion font-semibold">
-          <span>20% Booking Advance:</span>
-          <span id="cartAdvance">₹0</span>
-        </div>
-        <div class="flex justify-between text-[11px] text-silver-matte">
-          <span>Balance on COD:</span>
-          <span id="cartRemaining">₹0</span>
+          <div class="border-t border-palace-border pt-4 mt-4 space-y-2.5 font-orra text-xs">
+            <h4 class="font-bold text-palace-navy uppercase tracking-wider mb-2">Price Details</h4>
+            <div class="flex justify-between text-silver-matte">
+              <span>Total Price (MRP):</span>
+              <span id="cartSubtotal" class="font-bold text-palace-navy text-sm">₹0</span>
+            </div>
+            <div class="flex justify-between text-palace-red font-bold">
+              <span>20% Booking Token (If COD selected):</span>
+              <span id="cartAdvance">₹0</span>
+            </div>
+            <div class="flex justify-between text-silver-matte">
+              <span>Remaining Balance on COD:</span>
+              <span id="cartRemaining">₹0</span>
+            </div>
+            <div class="flex justify-between text-emerald-600 font-bold">
+              <span>Delivery Charges:</span>
+              <span>FREE (Insured Express)</span>
+            </div>
+          </div>
+
+          <button onclick="showCheckoutForm()" id="checkoutStepBtn" class="w-full py-4 bg-palace-navy text-white font-orra font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-palace-red transition flex items-center justify-center space-x-2 mt-6 shadow-xl">
+            <span>Proceed to Checkout</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
         </div>
 
-        <button onclick="proceedToOrder()" class="w-full py-3.5 bg-palace-navy text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-rajputana-vermilion transition flex items-center justify-center space-x-2 mt-2 shadow-lg">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Order via WhatsApp</span>
-        </button>
+        <div id="checkoutView" class="hidden">
+          <div class="flex items-center space-x-2 mb-4 cursor-pointer text-palace-navy" onclick="backToCart()">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span class="font-orra text-xs font-bold uppercase tracking-wider">Back to Bag</span>
+          </div>
+
+          <h4 class="font-cinzel text-base font-bold text-palace-navy uppercase mb-1">Shipping & Payment</h4>
+          <p class="font-orra text-[11px] text-silver-matte mb-4">Insured Express Courier Dispatch Across India</p>
+
+          <form id="orderForm" onsubmit="handleNativeOrder(event)" class="space-y-3 font-orra text-xs">
+            <div>
+              <label class="block font-semibold text-palace-navy mb-1">Full Name *</label>
+              <input type="text" id="custName" required placeholder="e.g. Rahul Sharma" class="w-full px-3 py-2.5 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+            </div>
+
+            <div>
+              <label class="block font-semibold text-palace-navy mb-1">Mobile / WhatsApp Number *</label>
+              <input type="tel" id="custPhone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" class="w-full px-3 py-2.5 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Pincode *</label>
+                <input type="text" id="custPin" required placeholder="6-digit PIN" pattern="[0-9]{6}" class="w-full px-3 py-2.5 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">City & State *</label>
+                <input type="text" id="custCity" required placeholder="e.g. Jaipur, Rajasthan" class="w-full px-3 py-2.5 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-palace-navy mb-1">Complete Delivery Address *</label>
+              <textarea id="custAddress" required rows="2" placeholder="House no, Building, Street, Landmark" class="w-full px-3 py-2.5 rounded-lg border border-palace-border focus:border-palace-navy outline-none"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <label class="block font-bold text-palace-navy mb-1.5 uppercase tracking-wider text-[11px]">Select Payment Method *</label>
+              
+              <div class="space-y-2">
+                <label class="flex items-center justify-between p-3.5 rounded-xl border-2 border-palace-border bg-white cursor-pointer hover:border-palace-navy transition">
+                  <div class="flex items-center space-x-3">
+                    <input type="radio" name="payMethod" value="UPI" checked class="accent-palace-navy w-4 h-4">
+                    <div>
+                      <span class="font-bold text-palace-navy block text-xs">UPI Instant Payment (Full Amount)</span>
+                      <span class="text-[10px] text-silver-matte">Scan PhonePe QR via GPay / PhonePe / Paytm</span>
+                    </div>
+                  </div>
+                  <span class="text-sm">⚡</span>
+                </label>
+
+                <label class="flex items-center justify-between p-3.5 rounded-xl border-2 border-palace-border bg-palace-sand/50 cursor-pointer hover:border-palace-navy transition">
+                  <div class="flex items-center space-x-3">
+                    <input type="radio" name="payMethod" value="COD" class="accent-palace-navy w-4 h-4">
+                    <div>
+                      <span class="font-bold text-palace-red block text-xs">20% Token Advance + 80% Cash on Delivery</span>
+                      <span class="text-[10px] text-silver-matte">Scan QR for 20% token now; balance 80% on doorstep delivery</span>
+                    </div>
+                  </div>
+                  <span class="text-sm">🏷️</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-palace-navy text-white font-orra font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-palace-red transition flex items-center justify-center space-x-2 mt-4 shadow-xl cursor-pointer">
+              <i data-lucide="qr-code" class="w-4 h-4"></i>
+              <span>Proceed to Pay & Confirm</span>
+            </button>
+          </form>
+        </div>
+
+        <div id="orderSuccessView" class="hidden text-center py-8">
+          <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-emerald-500 shadow-xl animate-success-pop">
+            <i data-lucide="check" class="w-10 h-10 stroke-[3]"></i>
+          </div>
+
+          <h4 class="font-cinzel text-xl font-bold text-palace-navy uppercase mb-1">Order Confirmed!</h4>
+          <p class="font-orra text-xs text-silver-matte mb-4">Your 925 Hallmark Silver jewellery order has been placed successfully.</p>
+
+          <div class="p-4 bg-palace-sand/50 rounded-2xl border border-palace-border text-left font-orra text-xs space-y-2 mb-6 shadow-sm">
+            <div class="flex justify-between border-b border-palace-border pb-2">
+              <span class="text-silver-matte">Order ID:</span>
+              <span id="displayOrderId" class="font-bold text-palace-navy">AJ-98231</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Customer:</span>
+              <span id="displayName" class="font-bold text-palace-navy">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Total Items:</span>
+              <span id="displayItems" class="font-bold text-palace-navy">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Payment Mode:</span>
+              <span id="displayPaymentMode" class="font-bold text-palace-navy text-right max-w-[200px] truncate">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Amount Paid / Token:</span>
+              <span id="displayAdvance" class="font-bold text-emerald-700">-</span>
+            </div>
+            <div class="flex justify-between" id="displayBalanceRow">
+              <span class="text-silver-matte">Balance on Delivery:</span>
+              <span id="displayBalance" class="font-bold text-palace-navy">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Dispatch:</span>
+              <span class="text-emerald-600 font-bold">Within 24 Hours Insured</span>
+            </div>
+          </div>
+
+          <button onclick="resetAndCloseCart()" class="w-full py-3 bg-palace-navy text-white font-orra font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-palace-red transition">
+            Continue Shopping
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ADMIN PASSCODE MODAL -->
-  <div id="adminModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="w-full max-w-xs bg-white p-6 rounded-2xl text-center border border-palace-border shadow-2xl">
-      <i data-lucide="lock" class="w-7 h-7 text-palace-navy mx-auto mb-3"></i>
-      <h3 class="font-cinzel text-sm tracking-wider text-palace-navy uppercase font-bold mb-4">OWNER LOGIN</h3>
-      <input type="password" id="adminPass" placeholder="Passcode (silver925)" class="w-full px-3 py-2 border border-palace-border text-center text-xs mb-4 rounded-lg focus:outline-none focus:border-palace-navy">
-      <div class="flex gap-2 font-cinzel text-xs">
-        <button onclick="closeAdmin()" class="w-1/2 py-2 border border-palace-border text-silver-matte rounded-lg">Cancel</button>
-        <button onclick="verifyAdmin()" class="w-1/2 py-2 bg-palace-navy text-white font-bold rounded-lg">Unlock</button>
+  <!-- DYNAMIC PHONEPE QR SCANNER MODAL -->
+  <div id="paymentModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-white rounded-3xl p-6 text-center border-2 border-palace-gold shadow-2xl relative">
+      <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-silver-matte hover:text-palace-navy p-1">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-palace-sand border border-palace-gold text-[10px] font-orra font-bold text-palace-navy uppercase mb-2">
+        <span>⚡ PhonePe Merchant QR</span>
       </div>
+
+      <h3 class="font-cinzel text-lg font-bold text-palace-navy uppercase">AKSHAY JEWELLERS</h3>
+      <p class="font-orra text-[11px] text-silver-matte mb-4" id="qrInstructionText">Scan QR to pay online</p>
+
+      <div class="p-3 bg-palace-sand/70 rounded-2xl border border-palace-border mb-4 font-orra">
+        <span class="text-[11px] text-silver-matte block">Amount to Pay Now:</span>
+        <span id="qrPayAmount" class="font-bold text-2xl text-palace-navy">₹0</span>
+        <span id="qrNoteSub" class="text-[10px] text-palace-red block mt-0.5 font-semibold">100% Full Payment</span>
+      </div>
+
+      <div class="w-60 h-60 mx-auto rounded-2xl border-2 border-palace-gold p-2 bg-white shadow-md flex items-center justify-center overflow-hidden mb-4 relative">
+        <img src="upi-qr.jpg" alt="Akshay Jewellers PhonePe QR" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3D7665426149%40ybl%26pn%3DAKSHAY%20JEWELLERS%26cu%3DINR';" class="w-full h-full object-contain">
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <a id="directUpiLink" href="#" class="w-full py-2.5 bg-purple-700 text-white font-orra font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-purple-800 transition flex items-center justify-center space-x-2">
+          <span>Pay via PhonePe / GPay / Paytm</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="border-t border-palace-border pt-3 text-left">
+        <label class="block font-orra font-semibold text-[11px] text-palace-navy mb-1">Transaction Ref / UTR No. (Optional)</label>
+        <input type="text" id="payUtrNumber" placeholder="Enter 12-digit UTR from payment app" class="w-full px-3 py-2 border border-palace-border rounded-lg text-xs font-orra mb-3 outline-none focus:border-palace-navy text-center">
+
+        <button onclick="confirmPaymentAndCompleteOrder()" class="w-full py-3.5 bg-emerald-700 text-white font-orra font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-emerald-800 transition flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>I Have Completed Payment</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- OFFLINE STORE LOCATION MODAL -->
+  <div id="locationModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 border border-palace-border shadow-2xl relative">
+      <button onclick="closeLocationModal()" class="absolute top-5 right-5 text-silver-matte hover:text-palace-navy">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="w-14 h-14 rounded-full bg-palace-sand border-2 border-palace-gold flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="map-pin" class="w-7 h-7 text-palace-red"></i>
+      </div>
+
+      <h3 class="font-cinzel text-xl font-bold text-center text-palace-navy uppercase mb-1">AKSHAY JEWELLERS ATELIER</h3>
+      <p class="font-orra text-xs text-center text-silver-matte uppercase tracking-widest mb-6 font-semibold">Offline Haveli Store & Workshop</p>
+
+      <div class="space-y-4 font-orra text-xs text-palace-navy border-y border-palace-border py-4 mb-6">
+        <div class="flex items-start space-x-3">
+          <i data-lucide="home" class="w-4 h-4 text-palace-gold shrink-0 mt-0.5"></i>
+          <div>
+            <span class="font-bold block">Haveli Address:</span>
+            <span class="text-silver-matte">Akshay Jewellers, Main Market, Silver Bazaar, Rajasthan, India</span>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+          <div>
+            <span class="font-bold block">Store Helpline:</span>
+            <a href="tel:7665426149" class="text-palace-red font-bold hover:underline">+91 7665426149</a>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <i data-lucide="clock" class="w-4 h-4 text-palace-gold shrink-0 mt-0.5"></i>
+          <div>
+            <span class="font-bold block">Timings:</span>
+            <span class="text-silver-matte">10:30 AM – 8:30 PM (All 7 Days Open)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="tel:7665426149" class="w-full sm:w-1/2 py-3 bg-palace-sand border border-palace-navy text-palace-navy font-orra font-bold text-xs uppercase tracking-wider rounded-full hover:bg-palace-navy hover:text-white transition text-center flex items-center justify-center space-x-2">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span>Call Store</span>
+        </a>
+        <a href="https://maps.google.com/?q=Akshay+Jewellers+Rajasthan" target="_blank" class="w-full sm:w-1/2 py-3 bg-palace-navy text-white font-orra font-bold text-xs uppercase tracking-wider rounded-full hover:bg-palace-red transition text-center flex items-center justify-center space-x-2 shadow-md">
+          <i data-lucide="navigation" class="w-4 h-4"></i>
+          <span>Open Google Map</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- SECURED ADMIN PASSCODE MODAL                  -->
+  <!-- ============================================== -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div id="adminModalBox" class="w-full max-w-xs bg-white p-6 rounded-3xl text-center border-2 border-palace-gold shadow-2xl transition duration-300">
+      <div class="w-12 h-12 rounded-full bg-palace-sand border border-palace-gold flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="shield" class="w-6 h-6 text-palace-navy"></i>
+      </div>
+      <h3 class="font-cinzel text-base tracking-wider text-palace-navy uppercase font-bold mb-1">STORE AUTHENTICATION</h3>
+      <p class="font-orra text-[11px] text-silver-matte mb-4">Authorized Personnel Only</p>
+      
+      <input type="password" id="adminPass" placeholder="••••••••" class="w-full px-3 py-2.5 border border-palace-border text-center text-xs mb-4 rounded-xl focus:outline-none focus:border-palace-navy font-orra tracking-widest">
+      
+      <div class="flex gap-2 font-orra text-xs">
+        <button onclick="closeAdmin()" class="w-1/2 py-2.5 border border-palace-border text-silver-matte rounded-xl font-bold">Cancel</button>
+        <button onclick="verifyAdmin()" class="w-1/2 py-2.5 bg-palace-navy text-white font-bold rounded-xl hover:bg-palace-red transition">Verify</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- RED ALERT MODAL (ENGLISH + SIREN ON FAIL)      -->
+  <!-- ============================================== -->
+  <div id="securityAlertModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-gradient-to-b from-red-950 via-neutral-900 to-black rounded-3xl p-6 text-center border-2 border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.7)] animate-alert-shake relative">
+      
+      <div class="w-16 h-16 rounded-full bg-red-600/20 border-2 border-red-500 text-red-500 flex items-center justify-center mx-auto mb-4 animate-red-strobe">
+        <i data-lucide="alert-triangle" class="w-8 h-8 stroke-[2.5]"></i>
+      </div>
+
+      <span class="inline-block px-3 py-1 rounded-full bg-red-600/30 text-red-400 font-mono text-[10px] font-bold tracking-widest uppercase mb-2 border border-red-600/40">
+        SECURITY PROTOCOL ACTIVATED
+      </span>
+
+      <h3 class="font-cinzel text-xl font-bold text-red-500 uppercase tracking-widest mb-1.5">ACCESS DENIED</h3>
+      <p class="font-orra text-xs text-neutral-300 leading-relaxed mb-4">
+        Invalid credentials detected. Unauthorized access attempt has been logged for security monitoring.
+      </p>
+
+      <div class="p-3 bg-red-950/40 rounded-xl border border-red-800/40 text-[11px] font-mono text-red-300 text-left space-y-1 mb-5">
+        <div class="flex justify-between">
+          <span class="text-neutral-400">STATUS:</span>
+          <span class="font-bold text-red-400">LOCKED</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-neutral-400">INCIDENT:</span>
+          <span>ERR_AUTH_FAILURE</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-neutral-400">TIMESTAMP:</span>
+          <span id="alertTimestamp">00:00:00</span>
+        </div>
+      </div>
+
+      <button onclick="dismissSecurityAlert()" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-orra font-bold text-xs uppercase tracking-widest rounded-xl transition shadow-lg cursor-pointer">
+        Dismiss & Return to Store
+      </button>
+
+    </div>
+  </div>
+
+  <!-- MASTER OWNER DASHBOARD -->
+  <div id="dashboardModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="w-full max-w-3xl bg-white rounded-3xl border-2 border-palace-gold shadow-2xl p-5 sm:p-8 my-4 max-h-[92vh] flex flex-col justify-between">
+      
+      <div>
+        <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-4">
+          <div>
+            <h3 class="font-cinzel text-xl font-bold text-palace-navy uppercase">AKSHAY JEWELLERS PORTAL</h3>
+            <p class="font-orra text-xs text-silver-matte">Direct Gallery Upload & Customer Orders</p>
+          </div>
+          <button onclick="closeDashboard()" class="text-silver-matte hover:text-palace-red p-1">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <div class="flex gap-3 border-b border-palace-border pb-3 mb-5 font-orra text-xs font-bold uppercase tracking-wider">
+          <button onclick="switchTab('orders')" id="tabBtnOrders" class="px-5 py-2.5 rounded-full bg-palace-navy text-white flex items-center space-x-2">
+            <i data-lucide="package" class="w-4 h-4"></i>
+            <span>Customer Orders (<span id="dashOrderCount">0</span>)</span>
+          </button>
+          <button onclick="switchTab('products')" id="tabBtnProducts" class="px-5 py-2.5 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand flex items-center space-x-2">
+            <i data-lucide="tag" class="w-4 h-4"></i>
+            <span>Products & Pricing (<span id="dashProductCount">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 1: ORDERS -->
+      <div id="tabOrdersView" class="flex-1 overflow-y-auto max-h-[58vh] pr-2 no-scrollbar">
+        <div class="flex justify-between items-center mb-3">
+          <span class="font-orra text-xs font-bold text-palace-navy uppercase tracking-wider">Recent Orders Record:</span>
+          <button onclick="clearAllOrders()" class="text-[11px] font-orra text-rose-600 hover:underline">Clear History</button>
+        </div>
+        <div id="ordersListContainer" class="space-y-3"></div>
+      </div>
+
+      <!-- TAB 2: PRODUCTS CMS -->
+      <div id="tabProductsView" class="hidden flex-1 overflow-y-auto max-h-[58vh] pr-2 no-scrollbar">
+        <div class="bg-palace-sand/60 p-5 rounded-2xl border border-palace-border mb-6">
+          <h4 id="formHeaderTitle" class="font-cinzel text-sm font-bold text-palace-navy uppercase mb-3 flex items-center space-x-2">
+            <i data-lucide="plus-circle" class="w-4 h-4 text-palace-red"></i>
+            <span>Add New Silver Ornament</span>
+          </h4>
+
+          <form id="productManageForm" onsubmit="handleSaveProduct(event)" class="space-y-3 font-orra text-xs">
+            <input type="hidden" id="editProductId" value="">
+            <input type="hidden" id="prodImageData" value="">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Product Title *</label>
+                <input type="text" id="prodTitle" required placeholder="e.g. Royal Silver Ghungroo Payal" class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Category *</label>
+                <select id="prodCategory" required class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none bg-white">
+                  <option value="Payal">Payal</option>
+                  <option value="Kada & Bracelets">Kada & Bracelets</option>
+                  <option value="Chains">Chains</option>
+                  <option value="Rings">Rings</option>
+                  <option value="Pooja Articles">Pooja Articles</option>
+                  <option value="Necklaces">Necklaces / Pendants</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Weight (e.g. 140 grams) *</label>
+                <input type="text" id="prodWeight" required placeholder="140 grams" class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Price in ₹ *</label>
+                <input type="number" id="prodPrice" required placeholder="13999" class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+              <div>
+                <label class="block font-semibold text-palace-navy mb-1">Purity Stamp *</label>
+                <input type="text" id="prodPurity" value="925 Pure Silver" class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+              </div>
+            </div>
+
+            <div class="p-3 bg-white rounded-xl border border-palace-border">
+              <label class="block font-bold text-palace-navy mb-2 flex items-center justify-between">
+                <span>Product Photo (Choose from Phone Gallery) *</span>
+                <span class="text-[10px] text-palace-gold font-normal">Direct Mobile Upload</span>
+              </label>
+              
+              <div class="flex items-center space-x-4">
+                <label class="cursor-pointer px-4 py-2 bg-palace-sand border-2 border-dashed border-palace-navy/40 rounded-xl hover:bg-palace-navy hover:text-white transition flex items-center space-x-2 text-xs font-semibold">
+                  <i data-lucide="image" class="w-4 h-4"></i>
+                  <span>Choose from Gallery / Files</span>
+                  <input type="file" id="prodFileInput" accept="image/*" class="hidden" onchange="previewGalleryImage(event)">
+                </label>
+
+                <div class="w-14 h-14 rounded-xl border-2 border-palace-gold overflow-hidden bg-palace-sand flex items-center justify-center shrink-0">
+                  <img id="galleryPreview" src="" class="w-full h-full object-cover hidden">
+                  <span id="noPreviewText" class="text-[9px] text-silver-matte text-center p-1">No Image</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-palace-navy mb-1">Description *</label>
+              <input type="text" id="prodDesc" required placeholder="Details about hallmarking and design" class="w-full px-3 py-2 rounded-lg border border-palace-border focus:border-palace-navy outline-none">
+            </div>
+
+            <div class="flex gap-2 pt-1">
+              <button type="submit" id="saveProductBtn" class="flex-1 py-3 bg-palace-navy text-white font-bold rounded-xl hover:bg-palace-red transition flex items-center justify-center space-x-2 shadow-md">
+                <i data-lucide="check" class="w-4 h-4"></i>
+                <span id="saveBtnText">Save & Publish to Website</span>
+              </button>
+              <button type="button" onclick="cancelEditForm()" id="cancelEditBtn" class="hidden px-4 py-3 border border-palace-border text-silver-matte font-bold rounded-xl">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <h4 class="font-cinzel text-xs font-bold text-palace-navy uppercase mb-2">Live Products List</h4>
+        <div id="dashboardItemsList" class="space-y-2"></div>
+      </div>
+
     </div>
   </div>
 
   <script>
-    const defaultCatalog = [
+    let logoTapCount = 0;
+    let logoTapTimer = null;
+
+    function handleLogoTripleTap() {
+      logoTapCount++;
+      clearTimeout(logoTapTimer);
+
+      if (logoTapCount === 3) {
+        logoTapCount = 0;
+        openAdmin();
+      } else {
+        logoTapTimer = setTimeout(() => {
+          logoTapCount = 0;
+        }, 600);
+      }
+    }
+
+    // EXPANDED 925 SILVER CATALOG
+    const fullRichCatalog = [
+      // RINGS (4 Varied Designs)
       {
-        id: 1,
-        title: "Traditional Ghungroo Silver Payal",
-        category: "Payal",
-        purity: "925 Pure Silver",
-        weight: "140 grams",
-        price: 13999,
-        image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=700&q=80",
-        desc: "Handcrafted bridal anklets with soothing antique melodious ghungroos."
-      },
-      {
-        id: 2,
-        title: "Solid Sterling Silver Bahubali Kada",
-        category: "Kada & Bracelets",
-        purity: "92.5% Solid Silver",
-        weight: "82 grams",
-        price: 8600,
-        image: "https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=700&q=80",
-        desc: "Heavy weight carved solid silver gent's kada with anti-tarnish rhodium coat."
-      },
-      {
-        id: 3,
-        title: "Radha Krishna Shringar Locket",
-        category: "Necklaces",
-        purity: "925 Hallmark Pure",
-        weight: "28 grams",
-        price: 3400,
-        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",
-        desc: "Devotional Radha Krishna medallion paired with sleek 925 silver chain."
-      },
-      {
-        id: 4,
-        title: "Classic Solitaire Filigree Ring",
+        id: 101,
+        title: "Classic Solitaire Filigree 925 Ring",
         category: "Rings",
+        subCategory: "Solitaire",
         purity: "925 Pure Silver",
         weight: "12 grams",
         price: 1850,
-        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80",
-        desc: "Sculpted sterling silver band designed for daily elegance and comfort."
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80",
+        desc: "Sculpted sterling silver band designed with delicate vintage filigree cutwork."
       },
       {
-        id: 5,
-        title: "Pure Silver Lakshmi-Ganesh Idol Set",
-        category: "Pooja Articles",
-        purity: "99.9% Shuddh Chandi",
-        weight: "110 grams",
-        price: 12200,
-        image: "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=700&q=80",
-        desc: "Sacred silver deities for home mandir, Diwali puja, and royal gifting."
+        id: 102,
+        title: "Royal Rajwadi Floral Silver Ring",
+        category: "Rings",
+        subCategory: "Floral Carved",
+        purity: "925 Pure Silver",
+        weight: "16 grams",
+        price: 2450,
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80",
+        desc: "Heavy antique blooming lotus pattern sculpted in pure 925 solid sterling silver."
       },
       {
-        id: 6,
+        id: 103,
+        title: "Gent's Lion Crest Silver Signet Ring",
+        category: "Rings",
+        subCategory: "Men's Signet",
+        purity: "92.5% Solid Silver",
+        weight: "22 grams",
+        price: 3200,
+        image: "https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=600&q=80",
+        desc: "Majestic embossed lion crest signet ring crafted for royal presence and daily wear."
+      },
+      {
+        id: 104,
+        title: "Navratna Enamel Heritage Silver Ring",
+        category: "Rings",
+        subCategory: "Heritage",
+        purity: "925 Pure Silver",
+        weight: "14 grams",
+        price: 2899,
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80",
+        desc: "Handcrafted traditional Meenakari work studded with protective auspicious nine stones."
+      },
+
+      // PAYAL (4 Varied Designs)
+      {
+        id: 201,
+        title: "Traditional Ghungroo Bridal Silver Payal",
+        category: "Payal",
+        subCategory: "Bridal Heavy",
+        purity: "925 Pure Silver",
+        weight: "140 grams",
+        price: 13999,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+        desc: "Generational wedding anklets layered with sweet-sounding antique silver ghungroos."
+      },
+      {
+        id: 202,
+        title: "Sleek Daily-Wear Bombay Link Payal",
+        category: "Payal",
+        subCategory: "Daily Wear",
+        purity: "925 Pure Silver",
+        weight: "45 grams",
+        price: 4600,
+        image: "https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=600&q=80",
+        desc: "Lightweight flexible diamond-cut chain anklet with smooth anti-scratch lock."
+      },
+      {
+        id: 203,
+        title: "Heavy Mewari Jhanjhar Silver Payal",
+        category: "Payal",
+        subCategory: "Mewari Jhanjhar",
+        purity: "925 Pure Silver",
+        weight: "185 grams",
+        price: 18200,
+        image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80",
+        desc: "Royal broad-band handcrafted jhanjhar with intricate floral filigree engraving."
+      },
+      {
+        id: 204,
+        title: "Oxidized Black Silver Tribal Payal",
+        category: "Payal",
+        subCategory: "Oxidized Tribal",
+        purity: "925 Pure Silver",
+        weight: "75 grams",
+        price: 7400,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+        desc: "Boho-chic antique blackened finish with handcrafted geometric tribal charms."
+      },
+
+      // KADA & BRACELETS (4 Varied Designs)
+      {
+        id: 301,
+        title: "Solid Sterling Silver Bahubali Kada",
+        category: "Kada & Bracelets",
+        subCategory: "Royal Kada",
+        purity: "92.5% Solid Silver",
+        weight: "82 grams",
+        price: 8600,
+        image: "https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=600&q=80",
+        desc: "Heavy weight carved solid silver gent's kada with anti-tarnish rhodium coat."
+      },
+      {
+        id: 302,
+        title: "Trishul Rudraksha Damroo Kada",
+        category: "Kada & Bracelets",
+        subCategory: "Devotional",
+        purity: "925 Pure Silver",
+        weight: "65 grams",
+        price: 6999,
+        image: "https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=600&q=80",
+        desc: "Sacred Mahadev emblem with consecrated authentic Rudraksha bead caps."
+      },
+      {
+        id: 303,
+        title: "Italian Mesh Link Silver Bracelet",
+        category: "Kada & Bracelets",
+        subCategory: "Modern Link",
+        purity: "925 Pure Silver",
+        weight: "38 grams",
+        price: 4200,
+        image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80",
+        desc: "Contemporary interlocking flat mesh bracelet with dual security clasp."
+      },
+      {
+        id: 304,
+        title: "Royal Rajputana Nagin Faced Kada",
+        category: "Kada & Bracelets",
+        subCategory: "Heritage Cuff",
+        purity: "925 Pure Silver",
+        weight: "95 grams",
+        price: 9800,
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80",
+        desc: "Vintage Marwadi twin-face serpent terminal carved with ruby eye insets."
+      },
+
+      // CHAINS (4 Varied Designs)
+      {
+        id: 401,
         title: "Handcrafted Curb Silver Chain",
         category: "Chains",
+        subCategory: "Curb Heavy",
         purity: "925 Pure Silver",
         weight: "42 grams",
         price: 4700,
-        image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=80",
+        image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80",
         desc: "Solid interlocking silver chain with brilliant diamond-cut high shine."
+      },
+      {
+        id: 402,
+        title: "Heavy Byzantine King's Chain",
+        category: "Chains",
+        subCategory: "Byzantine",
+        purity: "925 Pure Silver",
+        weight: "68 grams",
+        price: 7400,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+        desc: "Dense medieval 4-way interlocking links with solid luxury clasp."
+      },
+      {
+        id: 403,
+        title: "Sleek Rhodium Box Silver Chain",
+        category: "Chains",
+        subCategory: "Daily Wear",
+        purity: "925 Pure Silver",
+        weight: "22 grams",
+        price: 2599,
+        image: "https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=600&q=80",
+        desc: "Smooth mirror-finish box link designed for pendants and daily comfort."
+      },
+      {
+        id: 404,
+        title: "Twisted French Rope Silver Chain",
+        category: "Chains",
+        subCategory: "Rope Chain",
+        purity: "925 Pure Silver",
+        weight: "36 grams",
+        price: 3999,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+        desc: "Diamond-cut spiral rope chain creating a glittering 360-degree luster."
+      },
+
+      // POOJA ARTICLES (4 Varied Designs)
+      {
+        id: 501,
+        title: "Pure Silver Lakshmi-Ganesh Idol Set",
+        category: "Pooja Articles",
+        subCategory: "Sacred Idols",
+        purity: "99.9% Shuddh Chandi",
+        weight: "110 grams",
+        price: 12200,
+        image: "https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&w=600&q=80",
+        desc: "Consecrated silver deities for home mandir, Diwali puja, and royal gifting."
+      },
+      {
+        id: 502,
+        title: "Shuddh Chandi Aarti Thali & Diya Set",
+        category: "Pooja Articles",
+        subCategory: "Puja Utensils",
+        purity: "99.0% Shuddh Chandi",
+        weight: "210 grams",
+        price: 21500,
+        image: "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80",
+        desc: "Engraved Gayatri Mantra thali paired with handcrafted silver Panchmukhi diya."
+      },
+      {
+        id: 503,
+        title: "Sacred Narmadeshwar Shivling with Jaladhari",
+        category: "Pooja Articles",
+        subCategory: "Shiv Aradhana",
+        purity: "99.9% Shuddh Chandi",
+        weight: "95 grams",
+        price: 10800,
+        image: "https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&w=600&q=80",
+        desc: "Pure silver sculpted Jaladhari and Sheshnag umbrella for Abhishek rituals."
+      },
+      {
+        id: 504,
+        title: "Chandi Kalash with Nariyal for Griha Pravesh",
+        category: "Pooja Articles",
+        subCategory: "Kalash",
+        purity: "99.0% Shuddh Chandi",
+        weight: "160 grams",
+        price: 16900,
+        image: "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80",
+        desc: "Auspicious Mangal Kalash set decorated with embossed Swastik symbols."
+      },
+
+      // NECKLACES & PENDANTS (4 Varied Designs)
+      {
+        id: 601,
+        title: "Radha Krishna Shringar Locket with Chain",
+        category: "Necklaces",
+        subCategory: "Devotional",
+        purity: "925 Hallmark Pure",
+        weight: "28 grams",
+        price: 3400,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+        desc: "Devotional Radha Krishna medallion paired with sleek 925 silver chain."
+      },
+      {
+        id: 602,
+        title: "Royal Rajputana Antique Silver Hasli",
+        category: "Necklaces",
+        subCategory: "Royal Hasli",
+        purity: "925 Pure Silver",
+        weight: "90 grams",
+        price: 9900,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80",
+        desc: "Solid torque collar necklace crafted in authentic Marwadi heritage pattern."
+      },
+      {
+        id: 603,
+        title: "Antique Temple Jhumka Choker Set",
+        category: "Necklaces",
+        subCategory: "Choker Sets",
+        purity: "925 Pure Silver",
+        weight: "115 grams",
+        price: 12800,
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=600&q=80",
+        desc: "Intricately strung sterling choker set paired with hanging matching earrings."
+      },
+      {
+        id: 604,
+        title: "Trishul Mahakaal Pendant with 925 Chain",
+        category: "Necklaces",
+        subCategory: "Pendants",
+        purity: "925 Pure Silver",
+        weight: "24 grams",
+        price: 2799,
+        image: "https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=600&q=80",
+        desc: "High-definition carved silver trishul pendant with diamond-cut box chain."
       }
     ];
 
+    let activeCatalog = JSON.parse(localStorage.getItem('aj_custom_catalog'));
+    if (!activeCatalog || activeCatalog.length < 10) {
+      activeCatalog = fullRichCatalog;
+      localStorage.setItem('aj_custom_catalog', JSON.stringify(fullRichCatalog));
+    }
+
+    let storedOrders = JSON.parse(localStorage.getItem('aj_customer_orders')) || [];
     let cart = [];
     let currentFilter = 'All';
+    let currentSubFilter = 'All';
+    let pendingOrderTemp = null;
 
-    // ========================================================
-    // SWEET & SOFT BANSURI (FLUTE) 4-SECOND MELODY
-    // ========================================================
+    // FLUTE MELODY
     function playSoftBansuri() {
       try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         const ctx = new AudioContext();
 
-        // Authentic Peaceful Flute Notes (Raag Maand)
         const fluteNotes = [
-          { f: 440.00, t: 0.00, d: 0.80 },  // Dha
-          { f: 493.88, t: 0.50, d: 0.75 },  // Ni
-          { f: 587.33, t: 1.05, d: 1.00 },  // Sa (High Resonance)
-          { f: 659.25, t: 1.80, d: 0.85 },  // Re (Grace bend)
-          { f: 587.33, t: 2.35, d: 0.75 },  // Sa
-          { f: 440.00, t: 2.90, d: 1.20 }   // Calming finishing tone
+          { f: 440.00, t: 0.00, d: 0.80 },
+          { f: 493.88, t: 0.50, d: 0.75 },
+          { f: 587.33, t: 1.05, d: 1.00 },
+          { f: 659.25, t: 1.80, d: 0.85 },
+          { f: 587.33, t: 2.35, d: 0.75 },
+          { f: 440.00, t: 2.90, d: 1.20 }
         ];
 
         fluteNotes.forEach(note => {
@@ -437,7 +1126,6 @@
           osc.type = 'sine';
           osc.frequency.setValueAtTime(note.f, ctx.currentTime + note.t);
 
-          // Subtle breath vibrato
           const vibrato = ctx.createOscillator();
           const vibratoGain = ctx.createGain();
           vibrato.frequency.value = 5.2;
@@ -446,7 +1134,6 @@
           vibrato.start(ctx.currentTime + note.t);
           vibrato.stop(ctx.currentTime + note.t + note.d);
 
-          // Smooth breath attack & delicate fade-out
           gain.gain.setValueAtTime(0.0001, ctx.currentTime + note.t);
           gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + note.t + 0.12);
           gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + note.t + note.d);
@@ -457,35 +1144,105 @@
           osc.start(ctx.currentTime + note.t);
           osc.stop(ctx.currentTime + note.t + note.d);
         });
-
       } catch (e) {
-        console.log("Bansuri ready:", e);
+        console.log("Bansuri:", e);
       }
     }
 
-    // DIRECT 3D GATE OPENING (TAP ANYWHERE ON GATE)
+    // SUCCESS CHIME
+    function playSuccessChime() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioContext();
+
+        const chimeNotes = [
+          { f: 523.25, t: 0.00, d: 0.35, gain: 0.25 },
+          { f: 659.25, t: 0.10, d: 0.35, gain: 0.28 },
+          { f: 783.99, t: 0.20, d: 0.45, gain: 0.30 },
+          { f: 1046.50, t: 0.32, d: 0.85, gain: 0.35 }
+        ];
+
+        chimeNotes.forEach(n => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(n.f, ctx.currentTime + n.t);
+
+          gain.gain.setValueAtTime(0.0001, ctx.currentTime + n.t);
+          gain.gain.exponentialRampToValueAtTime(n.gain, ctx.currentTime + n.t + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + n.t + n.d);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(ctx.currentTime + n.t);
+          osc.stop(ctx.currentTime + n.t + n.d);
+        });
+      } catch(e) {
+        console.log("Chime:", e);
+      }
+    }
+
+    // ========================================================
+    // HIGH-PITCHED POLICE / SECURITY ALARM SIREN (SYNTHESIZED)
+    // ========================================================
+    function playSecuritySiren() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioContext();
+
+        // 3 Fast oscillating emergency pulses (High-Lo Warble)
+        const cycles = [
+          { startF: 750, endF: 1250, t: 0.00, d: 0.25 },
+          { startF: 1250, endF: 750, t: 0.25, d: 0.25 },
+          { startF: 750, endF: 1250, t: 0.50, d: 0.25 },
+          { startF: 1250, endF: 750, t: 0.75, d: 0.25 },
+          { startF: 750, endF: 1300, t: 1.00, d: 0.35 }
+        ];
+
+        cycles.forEach(c => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'sawtooth'; // Harsh alarm buzz
+          osc.frequency.setValueAtTime(c.startF, ctx.currentTime + c.t);
+          osc.frequency.linearRampToValueAtTime(c.endF, ctx.currentTime + c.t + c.d);
+
+          gain.gain.setValueAtTime(0.001, ctx.currentTime + c.t);
+          gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + c.t + 0.04);
+          gain.gain.linearRampToValueAtTime(0.001, ctx.currentTime + c.t + c.d);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(ctx.currentTime + c.t);
+          osc.stop(ctx.currentTime + c.t + c.d);
+        });
+      } catch(e) {
+        console.log("Siren error:", e);
+      }
+    }
+
+    // 3D GATE
     function openHaveliGates() {
       const gateLeft = document.getElementById('gateLeft');
       const gateRight = document.getElementById('gateRight');
       const welcomeBadge = document.getElementById('welcomeBadge');
       const gateContainer = document.getElementById('gateContainer');
 
-      // 1. Play sweet 4-sec flute
       playSoftBansuri();
 
-      // 2. Fade out welcome badge
       if(welcomeBadge) {
         welcomeBadge.style.opacity = '0';
         welcomeBadge.style.transform = 'scale(0.8)';
       }
 
-      // 3. 3D Swing open both palace doors
       setTimeout(() => {
         gateLeft.classList.add('gate-opened-left');
         gateRight.classList.add('gate-opened-right');
       }, 120);
 
-      // 4. Remove gate container completely
       setTimeout(() => {
         gateContainer.style.display = 'none';
       }, 1500);
@@ -493,34 +1250,52 @@
 
     function renderProducts() {
       const grid = document.getElementById('productGrid');
-      const filtered = currentFilter === 'All' 
-        ? defaultCatalog 
-        : defaultCatalog.filter(p => p.category === currentFilter);
+      
+      let filtered = currentFilter === 'All' 
+        ? activeCatalog 
+        : activeCatalog.filter(p => p.category === currentFilter);
+
+      if (currentSubFilter !== 'All') {
+        filtered = filtered.filter(p => p.subCategory === currentSubFilter);
+      }
 
       document.getElementById('itemCountDisplay').innerText = `Showing ${filtered.length} Ornaments`;
 
+      if(filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center bg-palace-sand/30 rounded-3xl border border-palace-border">
+            <i data-lucide="sparkles" class="w-8 h-8 text-palace-gold mx-auto mb-2"></i>
+            <p class="font-cinzel text-sm text-palace-navy font-bold uppercase">No ornaments found in this filter.</p>
+            <button onclick="filterCategory('All')" class="mt-3 px-6 py-2 rounded-full bg-palace-navy text-white text-xs font-orra font-bold uppercase tracking-wider">Show All Designs</button>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
       grid.innerHTML = filtered.map(item => `
-        <div class="bg-white border border-palace-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div class="bg-white border-2 border-palace-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
           <div class="relative overflow-hidden aspect-[4/5] bg-palace-sand/50">
-            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-            <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm border border-palace-border text-[10px] tracking-wider uppercase text-palace-navy px-3 py-1 rounded-full font-cinzel font-semibold shadow-sm">
+            <img src="${item.image}" alt="${item.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm border border-palace-border text-[10px] tracking-wider uppercase text-palace-navy px-2.5 py-1 rounded-full font-orra font-bold shadow-sm">
               ${item.purity}
             </span>
+            ${item.subCategory ? `<span class="absolute bottom-3 left-3 bg-palace-navy/85 text-palace-gold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md font-orra font-bold">${item.subCategory}</span>` : ''}
           </div>
 
-          <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <span class="text-[10px] font-cinzel text-silver-matte tracking-[0.2em] uppercase block mb-1.5">${item.category} • ${item.weight}</span>
-              <h4 class="font-cinzel text-base font-bold text-palace-navy tracking-wide mb-2">${item.title}</h4>
-              <p class="font-cormorant text-base text-silver-matte leading-relaxed mb-5 italic">${item.desc}</p>
+              <span class="text-[10px] font-orra font-bold text-silver-matte tracking-[0.2em] uppercase block mb-1">${item.category} • ${item.weight}</span>
+              <h4 class="font-cinzel text-sm sm:text-base font-bold text-palace-navy tracking-wide mb-1.5 line-clamp-1">${item.title}</h4>
+              <p class="font-body text-xs text-silver-matte leading-relaxed mb-4 line-clamp-2">${item.desc}</p>
             </div>
 
-            <div class="pt-4 border-t border-palace-border">
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="font-cinzel text-lg font-bold text-palace-navy">₹${item.price.toLocaleString('en-IN')}</span>
-                <span class="text-[11px] font-cinzel text-rajputana-vermilion font-medium">20% Adv: ₹${Math.round(item.price * 0.2).toLocaleString('en-IN')}</span>
+            <div class="pt-3 border-t border-palace-border">
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="font-orra text-lg font-bold text-palace-navy">₹${item.price.toLocaleString('en-IN')}</span>
+                <span class="text-[11px] font-orra text-palace-red font-bold">20% Adv: ₹${Math.round(item.price * 0.2).toLocaleString('en-IN')}</span>
               </div>
-              <button onclick="addToCart(${item.id})" class="w-full py-2.5 rounded-full border border-palace-navy text-palace-navy hover:bg-palace-navy hover:text-white transition text-xs font-cinzel tracking-[0.15em] uppercase font-bold flex items-center justify-center space-x-2">
+              <button onclick="addToCart(${item.id})" class="w-full py-2.5 rounded-full border border-palace-navy text-palace-navy hover:bg-palace-navy hover:text-white transition text-xs font-orra tracking-[0.15em] uppercase font-bold flex items-center justify-center space-x-1.5 shadow-sm">
                 <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                 <span>Add to Bag</span>
               </button>
@@ -534,58 +1309,122 @@
 
     function filterCategory(cat) {
       currentFilter = cat;
+      currentSubFilter = 'All';
+
       const pills = document.querySelectorAll('.cat-pill');
       pills.forEach(p => {
-        if(p.innerText.toLowerCase() === cat.toLowerCase() || (cat === 'All' && p.innerText.toLowerCase() === 'all')) {
-          p.className = 'cat-pill px-5 py-2 rounded-full border border-palace-navy bg-palace-navy text-white font-bold transition';
+        if(p.innerText.toLowerCase().trim() === cat.toLowerCase().trim() || (cat === 'All' && p.innerText.toLowerCase().includes('all'))) {
+          p.className = 'cat-pill px-5 py-2.5 rounded-full border border-palace-navy bg-palace-navy text-white transition';
         } else {
-          p.className = 'cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition';
+          p.className = 'cat-pill px-5 py-2.5 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition';
+        }
+      });
+
+      const titleEl = document.getElementById('currentVaultTitle');
+      const subEl = document.getElementById('currentVaultSubtitle');
+      if (cat === 'All') {
+        titleEl.innerText = "925 PURE SILVER VAULT";
+        subEl.innerText = "100% Certified Hallmark Ornaments with Transparent Weight";
+      } else {
+        titleEl.innerText = `${cat.toUpperCase()} COLLECTION`;
+        subEl.innerText = `Explore multiple handcrafted 925 sterling silver designs in ${cat}`;
+      }
+
+      const subContainer = document.getElementById('subFilterContainer');
+      if (cat === 'All') {
+        subContainer.innerHTML = '';
+      } else {
+        const subCats = [...new Set(activeCatalog.filter(p => p.category === cat && p.subCategory).map(p => p.subCategory))];
+        if (subCats.length > 0) {
+          subContainer.innerHTML = `
+            <span class="text-silver-matte font-bold text-xs uppercase self-center shrink-0">Types:</span>
+            <button onclick="filterSubCategory('All')" class="sub-pill px-3 py-1 rounded-full bg-palace-gold text-palace-navy font-bold border border-palace-gold transition shrink-0">All Types</button>
+            ${subCats.map(sub => `
+              <button onclick="filterSubCategory('${sub}')" class="sub-pill px-3 py-1 rounded-full bg-white text-palace-navy font-semibold border border-palace-border hover:border-palace-navy transition shrink-0">${sub}</button>
+            `).join('')}
+          `;
+        } else {
+          subContainer.innerHTML = '';
+        }
+      }
+
+      const el = document.getElementById('collection');
+      if(el) el.scrollIntoView({ behavior: 'smooth' });
+      renderProducts();
+    }
+
+    function filterSubCategory(sub) {
+      currentSubFilter = sub;
+      const subPills = document.querySelectorAll('.sub-pill');
+      subPills.forEach(sp => {
+        if((sub === 'All' && sp.innerText.includes('All')) || sp.innerText.trim() === sub.trim()) {
+          sp.className = 'sub-pill px-3 py-1 rounded-full bg-palace-gold text-palace-navy font-bold border border-palace-gold transition shrink-0';
+        } else {
+          sp.className = 'sub-pill px-3 py-1 rounded-full bg-white text-palace-navy font-semibold border border-palace-border hover:border-palace-navy transition shrink-0';
         }
       });
       renderProducts();
     }
 
     function addToCart(id) {
-      const prod = defaultCatalog.find(p => p.id === id);
-      cart.push(prod);
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        const prod = activeCatalog.find(p => p.id === id);
+        cart.push({ ...prod, qty: 1 });
+      }
       updateCartUI();
       toggleCart(true);
     }
 
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      updateCartUI();
+    }
+
     function updateCartUI() {
-      document.getElementById('cartCount').innerText = cart.length;
+      const totalItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').innerText = totalItemsCount;
       const container = document.getElementById('cartItemsContainer');
+      const checkoutBtn = document.getElementById('checkoutStepBtn');
       
       if(cart.length === 0) {
-        container.innerHTML = `<p class="font-cormorant text-center text-silver-matte py-8 italic text-lg">Your silver selection is empty.</p>`;
+        container.innerHTML = `<p class="font-orra text-center text-silver-matte py-8 italic text-sm">Your bag is empty.</p>`;
         document.getElementById('cartSubtotal').innerText = '₹0';
         document.getElementById('cartAdvance').innerText = '₹0';
         document.getElementById('cartRemaining').innerText = '₹0';
+        if(checkoutBtn) checkoutBtn.style.display = 'none';
         return;
       }
 
-      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      if(checkoutBtn) checkoutBtn.style.display = 'flex';
+      let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
       let advance = Math.round(total * 0.2);
       let rem = total - advance;
 
-      container.innerHTML = cart.map((item, index) => `
-        <div class="flex items-center justify-between p-3 border border-palace-border rounded-xl bg-palace-sand/30">
-          <div>
-            <h5 class="font-cinzel text-xs font-bold text-palace-navy">${item.title}</h5>
-            <p class="font-cormorant text-sm text-silver-matte">₹${item.price.toLocaleString('en-IN')}</p>
+      container.innerHTML = cart.map(item => `
+        <div class="flex items-center justify-between p-3 border border-palace-border rounded-xl bg-palace-sand/40">
+          <div class="flex-1 mr-2">
+            <h5 class="font-orra text-xs font-bold text-palace-navy">${item.title}</h5>
+            <p class="font-orra text-xs text-silver-matte">₹${item.price.toLocaleString('en-IN')} × ${item.qty} = <span class="font-bold text-palace-navy">₹${(item.price * item.qty).toLocaleString('en-IN')}</span></p>
           </div>
-          <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 text-xs font-cinzel">Remove</button>
+          <div class="flex items-center space-x-2 bg-white border border-palace-border px-2 py-1 rounded-lg">
+            <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 flex items-center justify-center font-bold text-palace-red hover:bg-palace-sand rounded">-</button>
+            <span class="font-orra text-xs font-bold text-palace-navy px-1">${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 flex items-center justify-center font-bold text-emerald-700 hover:bg-palace-sand rounded">+</button>
+          </div>
         </div>
       `).join('');
 
       document.getElementById('cartSubtotal').innerText = `₹${total.toLocaleString('en-IN')}`;
       document.getElementById('cartAdvance').innerText = `₹${advance.toLocaleString('en-IN')}`;
       document.getElementById('cartRemaining').innerText = `₹${rem.toLocaleString('en-IN')}`;
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
     }
 
     function toggleCart(forceOpen = false) {
@@ -595,36 +1434,409 @@
       lucide.createIcons();
     }
 
-    function proceedToOrder() {
-      if(cart.length === 0) return alert('Kripya pehle koi 925 silver jewellery chunein!');
-      let total = cart.reduce((sum, item) => sum + item.price, 0);
-      let advance = Math.round(total * 0.2);
-      let rem = total - advance;
-
-      let msg = `Khamma Ghani Akshay Jewellers!\nMujhe 925 Hallmark Silver jewellery order karni hai:\n\n`;
-      cart.forEach((i, idx) => {
-        msg += `${idx+1}. ${i.title} (₹${i.price})\n`;
-      });
-      msg += `\nTotal Silver: ₹${total}\nBooking Advance (20%): ₹${advance}\nBalance on COD: ₹${rem}\n\nKripya mera order confirm karein!`;
-      
-      const phone = "919649533041";
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    function showCheckoutForm() {
+      if(cart.length === 0) return alert('Please add at least one item to bag!');
+      document.getElementById('cartView').classList.add('hidden');
+      document.getElementById('checkoutView').classList.remove('hidden');
+      document.getElementById('orderSuccessView').classList.add('hidden');
     }
 
+    function backToCart() {
+      document.getElementById('checkoutView').classList.add('hidden');
+      document.getElementById('cartView').classList.remove('hidden');
+    }
+
+    // ORDER INITIATION
+    function handleNativeOrder(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const pin = document.getElementById('custPin').value;
+      const city = document.getElementById('custCity').value;
+      const address = document.getElementById('custAddress').value;
+      const mode = document.querySelector('input[name="payMethod"]:checked').value;
+
+      let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      let advance = Math.round(total * 0.2);
+      let balance = total - advance;
+      let totalPieces = cart.reduce((sum, item) => sum + item.qty, 0);
+
+      const payNowAmount = (mode === 'UPI') ? total : advance;
+
+      pendingOrderTemp = {
+        name, phone, pin, city, address, mode, total, advance, balance, totalPieces, payNowAmount
+      };
+
+      document.getElementById('qrPayAmount').innerText = `₹${payNowAmount.toLocaleString('en-IN')}`;
+      if (mode === 'UPI') {
+        document.getElementById('qrInstructionText').innerText = 'Scan PhonePe QR to pay full order amount';
+        document.getElementById('qrNoteSub').innerText = '100% Full Payment via UPI';
+      } else {
+        document.getElementById('qrInstructionText').innerText = 'Scan PhonePe QR to pay 20% advance token';
+        document.getElementById('qrNoteSub').innerText = `20% Advance Token (Balance ₹${balance.toLocaleString('en-IN')} on COD)`;
+      }
+
+      const upiUrl = `upi://pay?pa=7665426149@ybl&pn=AKSHAY%20JEWELLERS&am=${payNowAmount}&cu=INR&tn=AkshayJewellersOrder`;
+      document.getElementById('directUpiLink').href = upiUrl;
+
+      document.getElementById('paymentModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+    }
+
+    // ORDER CONFIRMATION
+    function confirmPaymentAndCompleteOrder() {
+      if (!pendingOrderTemp) return;
+
+      const utr = document.getElementById('payUtrNumber').value || 'UPI-VERIFIED';
+      const orderId = 'AJ-' + Math.floor(100000 + Math.random() * 900000);
+      const orderDate = new Date().toLocaleString('en-IN');
+
+      const paymentMethodName = (pendingOrderTemp.mode === 'UPI') 
+        ? 'UPI Instant Payment (Full Paid)' 
+        : '20% Advance Token Paid + 80% Cash on Delivery';
+
+      const orderRecord = {
+        orderId,
+        date: orderDate,
+        customerName: pendingOrderTemp.name,
+        phone: pendingOrderTemp.phone,
+        pincode: pendingOrderTemp.pin,
+        city: pendingOrderTemp.city,
+        address: pendingOrderTemp.address,
+        paymentMode: paymentMethodName,
+        utr: utr,
+        items: [...cart],
+        totalAmount: pendingOrderTemp.total,
+        amountPaid: pendingOrderTemp.payNowAmount,
+        balanceDue: (pendingOrderTemp.mode === 'UPI') ? 0 : pendingOrderTemp.balance,
+        totalPieces: pendingOrderTemp.totalPieces
+      };
+
+      storedOrders.unshift(orderRecord);
+      localStorage.setItem('aj_customer_orders', JSON.stringify(storedOrders));
+
+      closePaymentModal();
+
+      document.getElementById('displayOrderId').innerText = orderId;
+      document.getElementById('displayName').innerText = `${pendingOrderTemp.name} (${pendingOrderTemp.phone})`;
+      document.getElementById('displayItems').innerText = `${pendingOrderTemp.totalPieces} Piece(s)`;
+      document.getElementById('displayPaymentMode').innerText = paymentMethodName;
+      document.getElementById('displayTotal').innerText = `₹${pendingOrderTemp.total.toLocaleString('en-IN')}`;
+      document.getElementById('displayAdvance').innerText = `₹${pendingOrderTemp.payNowAmount.toLocaleString('en-IN')} (Paid via PhonePe QR)`;
+
+      const balanceRow = document.getElementById('displayBalanceRow');
+      if (pendingOrderTemp.mode === 'UPI') {
+        balanceRow.style.display = 'none';
+      } else {
+        balanceRow.style.display = 'flex';
+        document.getElementById('displayBalance').innerText = `₹${pendingOrderTemp.balance.toLocaleString('en-IN')} (Pay on Delivery)`;
+      }
+
+      document.getElementById('checkoutView').classList.add('hidden');
+      document.getElementById('orderSuccessView').classList.remove('hidden');
+
+      playSuccessChime();
+
+      cart = [];
+      pendingOrderTemp = null;
+      document.getElementById('cartCount').innerText = '0';
+      document.getElementById('payUtrNumber').value = '';
+    }
+
+    function resetAndCloseCart() {
+      document.getElementById('orderSuccessView').classList.add('hidden');
+      document.getElementById('cartView').classList.remove('hidden');
+      toggleCart(false);
+      updateCartUI();
+    }
+
+    function openLocationModal() {
+      document.getElementById('locationModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+    function closeLocationModal() {
+      document.getElementById('locationModal').classList.add('hidden');
+    }
+
+    function previewGalleryImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const previewImg = document.getElementById('galleryPreview');
+          const noPreviewText = document.getElementById('noPreviewText');
+          previewImg.src = e.target.result;
+          previewImg.classList.remove('hidden');
+          noPreviewText.classList.add('hidden');
+          document.getElementById('prodImageData').value = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // SECURED ADMIN OPEN / CLOSE / VERIFY
     function openAdmin() {
       document.getElementById('adminModal').classList.remove('hidden');
+      document.getElementById('adminPass').focus();
     }
     function closeAdmin() {
       document.getElementById('adminModal').classList.add('hidden');
+      document.getElementById('adminPass').value = '';
     }
+
+    // ========================================================
+    // TRIGGER RED SECURITY ALERT + SIREN ON WRONG PASSWORD
+    // ========================================================
     function verifyAdmin() {
       const val = document.getElementById('adminPass').value;
       if(val === 'silver925') {
-        alert('Access Granted! Store Manager ready.');
         closeAdmin();
+        openDashboard();
       } else {
-        alert('Galat code. Secret code: silver925');
+        // Trigger Red Alert Modal & Siren Sound
+        closeAdmin();
+        triggerRedSecurityAlert();
       }
+    }
+
+    function triggerRedSecurityAlert() {
+      const now = new Date();
+      document.getElementById('alertTimestamp').innerText = now.toTimeString().split(' ')[0] + ' UTC+05:30';
+      
+      const alertModal = document.getElementById('securityAlertModal');
+      alertModal.classList.remove('hidden');
+      
+      // Play police warning siren
+      playSecuritySiren();
+      lucide.createIcons();
+    }
+
+    function dismissSecurityAlert() {
+      document.getElementById('securityAlertModal').classList.add('hidden');
+    }
+
+    function openDashboard() {
+      document.getElementById('dashboardModal').classList.remove('hidden');
+      switchTab('orders');
+      lucide.createIcons();
+    }
+
+    function closeDashboard() {
+      document.getElementById('dashboardModal').classList.add('hidden');
+    }
+
+    function switchTab(tab) {
+      const tabOrders = document.getElementById('tabOrdersView');
+      const tabProducts = document.getElementById('tabProductsView');
+      const btnOrders = document.getElementById('tabBtnOrders');
+      const btnProducts = document.getElementById('tabBtnProducts');
+
+      if(tab === 'orders') {
+        tabOrders.classList.remove('hidden');
+        tabProducts.classList.add('hidden');
+        btnOrders.className = 'px-5 py-2.5 rounded-full bg-palace-navy text-white flex items-center space-x-2';
+        btnProducts.className = 'px-5 py-2.5 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand flex items-center space-x-2';
+        renderDashboardOrders();
+      } else {
+        tabProducts.classList.remove('hidden');
+        tabOrders.classList.add('hidden');
+        btnProducts.className = 'px-5 py-2.5 rounded-full bg-palace-navy text-white flex items-center space-x-2';
+        btnOrders.className = 'px-5 py-2.5 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand flex items-center space-x-2';
+        renderDashboardProducts();
+      }
+    }
+
+    function renderDashboardOrders() {
+      document.getElementById('dashOrderCount').innerText = storedOrders.length;
+      const container = document.getElementById('ordersListContainer');
+
+      if(storedOrders.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 bg-palace-sand/40 rounded-2xl border border-palace-border">
+            <i data-lucide="package-open" class="w-8 h-8 text-silver-matte mx-auto mb-2"></i>
+            <p class="font-orra text-xs text-silver-matte">No customer orders received yet.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = storedOrders.map(ord => `
+        <div class="p-4 rounded-2xl border border-palace-border bg-palace-sand/30 font-orra text-xs space-y-2.5">
+          <div class="flex justify-between items-center border-b border-palace-border pb-2">
+            <div>
+              <span class="font-bold text-palace-navy text-sm">${ord.orderId}</span>
+              <span class="text-silver-matte text-[11px] block">${ord.date}</span>
+            </div>
+            <span class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-[10px]">CONFIRMED ORDER</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-palace-navy">
+            <div>
+              <span class="text-silver-matte text-[11px] block">Customer Details:</span>
+              <span class="font-bold">${ord.customerName}</span>
+              <a href="tel:${ord.phone}" class="block text-palace-red font-bold hover:underline">📞 ${ord.phone}</a>
+            </div>
+            <div>
+              <span class="text-silver-matte text-[11px] block">Delivery Address:</span>
+              <span>${ord.address}, ${ord.city} - <b>${ord.pincode}</b></span>
+            </div>
+          </div>
+
+          <div class="p-2.5 rounded-xl bg-white border border-palace-border text-[11px] space-y-1">
+            <div class="flex justify-between">
+              <span class="text-silver-matte">Payment Mode:</span>
+              <span class="font-bold text-palace-navy">${ord.paymentMode}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-silver-matte">UTR / Reference No:</span>
+              <span class="font-mono font-bold text-purple-700">${ord.utr || 'Direct PhonePe QR'}</span>
+            </div>
+          </div>
+
+          <div class="border-t border-palace-border pt-2 text-[11px]">
+            <span class="font-bold text-palace-navy block mb-1">Ordered Jewellery Items:</span>
+            <div class="space-y-1">
+              ${ord.items.map(it => `
+                <div class="flex justify-between text-silver-matte">
+                  <span>• ${it.title} (Qty:${it.qty})</span>
+                  <span class="font-bold text-palace-navy">₹${it.price * it.qty}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center border-t border-palace-border pt-2 font-bold text-xs">
+            <span>Total Bill: <span class="text-palace-navy text-sm">₹${ord.totalAmount.toLocaleString('en-IN')}</span></span>
+            <span class="text-emerald-700">Paid: ₹${ord.amountPaid.toLocaleString('en-IN')}</span>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function clearAllOrders() {
+      if(!confirm('Are you sure you want to clear all order history?')) return;
+      storedOrders = [];
+      localStorage.removeItem('aj_customer_orders');
+      renderDashboardOrders();
+    }
+
+    function renderDashboardProducts() {
+      document.getElementById('dashProductCount').innerText = activeCatalog.length;
+      const list = document.getElementById('dashboardItemsList');
+      
+      list.innerHTML = activeCatalog.map(item => `
+        <div class="flex items-center justify-between p-3 border border-palace-border rounded-xl bg-white shadow-sm font-orra text-xs">
+          <div class="flex items-center space-x-3 overflow-hidden">
+            <img src="${item.image}" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80';" class="w-12 h-12 object-cover rounded-lg border border-palace-border shrink-0">
+            <div>
+              <span class="font-bold text-palace-navy block truncate max-w-[200px] sm:max-w-xs">${item.title}</span>
+              <span class="text-silver-matte text-[11px]">${item.category} • ₹${item.price} • ${item.weight}</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2 shrink-0">
+            <button onclick="editProduct(${item.id})" class="text-palace-navy hover:text-white hover:bg-palace-navy font-bold px-3 py-1.5 rounded-lg border border-palace-navy transition">
+              Edit ✏️
+            </button>
+            <button onclick="deleteProduct(${item.id})" class="text-rose-600 hover:text-rose-800 font-bold px-3 py-1.5 rounded-lg border border-rose-200 hover:bg-rose-50 transition">
+              Delete 🗑️️
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function editProduct(id) {
+      const prod = activeCatalog.find(p => p.id === id);
+      if(!prod) return;
+
+      document.getElementById('editProductId').value = prod.id;
+      document.getElementById('prodTitle').value = prod.title;
+      document.getElementById('prodCategory').value = prod.category;
+      document.getElementById('prodWeight').value = prod.weight;
+      document.getElementById('prodPrice').value = prod.price;
+      document.getElementById('prodPurity').value = prod.purity;
+      document.getElementById('prodImageData').value = prod.image;
+      document.getElementById('prodDesc').value = prod.desc;
+
+      const previewImg = document.getElementById('galleryPreview');
+      const noPreviewText = document.getElementById('noPreviewText');
+      previewImg.src = prod.image;
+      previewImg.classList.remove('hidden');
+      noPreviewText.classList.add('hidden');
+
+      document.getElementById('formHeaderTitle').innerHTML = `<i data-lucide="edit-3" class="w-4 h-4 text-palace-gold"></i><span>Edit: ${prod.title}</span>`;
+      document.getElementById('saveBtnText').innerText = 'Update Product Details';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+      document.getElementById('tabProductsView').scrollTop = 0;
+      lucide.createIcons();
+    }
+
+    function cancelEditForm() {
+      document.getElementById('productManageForm').reset();
+      document.getElementById('editProductId').value = '';
+      document.getElementById('prodImageData').value = '';
+      document.getElementById('galleryPreview').src = '';
+      document.getElementById('galleryPreview').classList.add('hidden');
+      document.getElementById('noPreviewText').classList.remove('hidden');
+
+      document.getElementById('formHeaderTitle').innerHTML = `<i data-lucide="plus-circle" class="w-4 h-4 text-palace-red"></i><span>Add New Silver Ornament</span>`;
+      document.getElementById('saveBtnText').innerText = 'Save & Publish to Website';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+      lucide.createIcons();
+    }
+
+    function handleSaveProduct(e) {
+      e.preventDefault();
+      const editId = document.getElementById('editProductId').value;
+
+      const title = document.getElementById('prodTitle').value;
+      const category = document.getElementById('prodCategory').value;
+      const weight = document.getElementById('prodWeight').value;
+      const price = parseInt(document.getElementById('prodPrice').value);
+      const purity = document.getElementById('prodPurity').value || '925 Pure Silver';
+      const image = document.getElementById('prodImageData').value;
+      const desc = document.getElementById('prodDesc').value;
+
+      if(!image) {
+        return alert('Please select a photo from gallery!');
+      }
+
+      if(editId) {
+        const index = activeCatalog.findIndex(p => p.id == editId);
+        if(index !== -1) {
+          activeCatalog[index] = { ...activeCatalog[index], title, category, weight, price, purity, image, desc };
+          alert('Updated Successfully!');
+        }
+      } else {
+        const newProd = {
+          id: Date.now(),
+          title, category, weight, price, purity, image, desc
+        };
+        activeCatalog.unshift(newProd);
+        alert('New Ornament Published to Live Website!');
+      }
+
+      localStorage.setItem('aj_custom_catalog', JSON.stringify(activeCatalog));
+      cancelEditForm();
+      renderDashboardProducts();
+      renderProducts();
+    }
+
+    function deleteProduct(id) {
+      if(!confirm('Are you sure you want to delete this listing?')) return;
+      activeCatalog = activeCatalog.filter(p => p.id !== id);
+      localStorage.setItem('aj_custom_catalog', JSON.stringify(activeCatalog));
+      renderDashboardProducts();
+      renderProducts();
     }
 
     window.onload = () => {
@@ -634,4 +1846,3 @@
   </script>
 </body>
 </html>
-
