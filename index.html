@@ -1,778 +1,637 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akshay Jewellers | 92.5 Hallmarked Pure Silver</title>
-  <meta name="description" content="Akshay Jewellers, Hanumangarh - Premium 92.5 Hallmarked Silver Jewellery Collection. Rings, Kadas, Chains, Payals, and more with Partial COD." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKSHAY JEWELLERS | 925 Pure Hallmark Silver</title>
 
-  <!-- Tailwind CSS & Google Luxury Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Luxury Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            palace: {
+              ivory: '#FAF8F5',
+              sand: '#F3EFE6',
+              card: '#FFFFFF',
+              navy: '#0F1E36',
+              border: '#E2DBD0',
+            },
+            silver: {
+              hallmark: '#1E293B',
+              matte: '#64748B',
+              shimmer: '#94A3B8',
+              line: '#CBD5E1',
+            },
+            rajputana: {
+              vermilion: '#9E2A2B',
+              goldleaf: '#C59B27',
+            }
+          },
+          fontFamily: {
+            italiana: ['"Italiana"', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg-dark: #07080a;
-      --card-bg: rgba(18, 20, 26, 0.75);
-      --gold-accent: #e6ca65;
-      --maroon-glow: #38080f;
+    /* 3D Haveli Gate Perspective */
+    .door-perspective {
+      perspective: 1400px;
     }
-    body {
-      background-color: var(--bg-dark);
-      color: #f1f5f9;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
+    
+    .gate-panel {
+      transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+      background: linear-gradient(135deg, #F8F5EE 0%, #EDE6D8 50%, #DED4C0 100%);
+      box-shadow: inset 0 0 50px rgba(15, 30, 54, 0.15);
     }
-    .font-luxury {
-      font-family: 'Cinzel', serif;
+
+    .left-gate {
+      transform-origin: left center;
+      border-right: 2px solid #C59B27;
     }
-    .silver-sheen {
-      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    .right-gate {
+      transform-origin: right center;
+      border-left: 2px solid #C59B27;
     }
-    .gold-sheen {
-      background: linear-gradient(135deg, #fae8a4 0%, #d4af37 50%, #aa820a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    .gate-opened-left {
+      transform: rotateY(-115deg) translateZ(30px);
+      opacity: 0;
+      pointer-events: none;
     }
-    .luxury-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(226, 232, 240, 0.12);
-      transition: all 0.35s ease;
+
+    .gate-opened-right {
+      transform: rotateY(115deg) translateZ(30px);
+      opacity: 0;
+      pointer-events: none;
     }
-    .luxury-card:hover {
-      border-color: rgba(212, 175, 55, 0.35);
-      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.08);
-      transform: translateY(-3px);
+
+    .marble-pattern {
+      background-color: #FAF8F5;
+      background-image: radial-gradient(#E5DFD3 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
     }
-    .custom-scroll::-webkit-scrollbar {
-      display: none;
-    }
-    .custom-scroll {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    @keyframes pulseRing {
-      0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 0 15px rgba(212,175,55,0.4)); }
-      50% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 30px rgba(212,175,55,0.7)); }
-    }
-    .logo-reveal-anim {
-      animation: pulseRing 3.5s ease-in-out infinite;
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="selection:bg-amber-900/60 selection:text-white pb-24">
+<body class="marble-pattern text-palace-navy font-sans antialiased selection:bg-palace-sand overflow-x-hidden">
 
-  <!-- ==================== LUXURY INTRO LOGO ANIMATION ==================== -->
-  <div id="splashScreen" class="fixed inset-0 z-50 bg-[#060708] flex flex-col items-center justify-center transition-all duration-1000">
-    <div class="relative flex flex-col items-center p-6 text-center max-w-sm">
-      <!-- Glow Aura -->
-      <div class="absolute w-64 h-64 bg-[#4a0812]/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <!-- ======================================================== -->
+  <!-- 3D HAVELI GATE WITH OFFICIAL LOGO & WELCOME BADGE        -->
+  <!-- ======================================================== -->
+  <div id="gateContainer" onclick="openHaveliGates()" class="fixed inset-0 z-50 door-perspective flex pointer-events-auto cursor-pointer">
+    
+    <!-- LEFT GATE -->
+    <div id="gateLeft" class="gate-panel left-gate w-1/2 h-full relative flex items-center justify-end pr-5 sm:pr-12 border-y-8 border-l-8 border-palace-navy/20">
+      <div class="absolute inset-4 border-2 border-rajputana-goldleaf/40 rounded-l-2xl pointer-events-none flex flex-col justify-around py-12 px-4 opacity-40">
+        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+        <div class="w-12 h-12 rounded-full border-2 border-rajputana-goldleaf mx-auto"></div>
+        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+      </div>
+      <!-- Brass Door Ring -->
+      <div class="w-11 h-11 sm:w-16 sm:h-16 rounded-full border-4 border-rajputana-goldleaf flex items-center justify-center bg-palace-sand shadow-lg z-10">
+        <div class="w-4 h-4 rounded-full bg-palace-navy"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT GATE -->
+    <div id="gateRight" class="gate-panel right-gate w-1/2 h-full relative flex items-center justify-start pl-5 sm:pl-12 border-y-8 border-r-8 border-palace-navy/20">
+      <div class="absolute inset-4 border-2 border-rajputana-goldleaf/40 rounded-r-2xl pointer-events-none flex flex-col justify-around py-12 px-4 opacity-40">
+        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+        <div class="w-12 h-12 rounded-full border-2 border-rajputana-goldleaf mx-auto"></div>
+        <div class="w-8 h-8 rounded-full border border-rajputana-goldleaf mx-auto"></div>
+      </div>
+      <!-- Brass Door Ring -->
+      <div class="w-11 h-11 sm:w-16 sm:h-16 rounded-full border-4 border-rajputana-goldleaf flex items-center justify-center bg-palace-sand shadow-lg z-10">
+        <div class="w-4 h-4 rounded-full bg-palace-navy"></div>
+      </div>
+    </div>
+
+    <!-- CENTER WELCOME BADGE WITH AKSHAY JEWELLERS LOGO -->
+    <div id="welcomeBadge" class="absolute inset-0 m-auto w-11/12 max-w-sm h-fit py-7 px-6 rounded-3xl bg-white/95 backdrop-blur-md border border-rajputana-goldleaf/50 shadow-2xl text-center z-30 transition-all duration-500">
       
-      <!-- Animated Emblem derived from your logo -->
-      <div class="w-28 h-28 rounded-full border-2 border-[#d4af37]/80 bg-gradient-to-b from-[#2e060c] via-[#150205] to-black flex items-center justify-center p-4 logo-reveal-anim shadow-2xl relative mb-6">
-        <div class="absolute -top-3 bg-black px-2 text-[#d4af37]">
-          <i data-lucide="gem" class="w-5 h-5"></i>
-        </div>
-        <span class="font-luxury text-4xl font-extrabold gold-sheen tracking-wider ml-1">AJ</span>
+      <!-- Logo Image Display -->
+      <div class="w-20 h-20 mx-auto mb-3 rounded-full border-2 border-rajputana-goldleaf p-1 shadow-md bg-white overflow-hidden flex items-center justify-center">
+        <img src="logo.png" alt="Akshay Jewellers" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80'" class="w-full h-full object-cover rounded-full">
       </div>
 
-      <h1 class="font-luxury text-2xl sm:text-3xl font-bold tracking-[0.25em] gold-sheen mb-2">AKSHAY JEWELLERS</h1>
-      <p class="text-[10px] tracking-[0.4em] uppercase text-slate-400 font-medium">92.5 Hallmarked Pure Silver</p>
+      <h2 class="font-cinzel text-xs tracking-[0.3em] text-silver-matte uppercase mb-1">
+        Welcome to
+      </h2>
+      <h1 class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] text-palace-navy uppercase mb-1">
+        AKSHAY JEWELLERS
+      </h1>
+      <p class="font-cormorant italic text-sm text-rajputana-goldleaf mb-5">
+        925 Pure Hallmark Silver Atelier
+      </p>
 
-      <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent my-6"></div>
-
-      <button onclick="dismissSplash()" class="text-[11px] text-slate-500 hover:text-[#d4af37] tracking-[0.2em] uppercase transition">
-        Enter Boutique →
-      </button>
+      <!-- Pulsating Tap Button -->
+      <div class="py-3 px-6 rounded-full bg-palace-navy text-white shadow-xl flex items-center justify-center space-x-2 animate-bounce">
+        <i data-lucide="sparkles" class="w-4 h-4 text-rajputana-goldleaf"></i>
+        <span class="font-cinzel text-xs font-bold tracking-[0.2em] uppercase">Tap Here To Enter</span>
+      </div>
     </div>
+
   </div>
 
-  <!-- ==================== TOP ANNOUNCEMENT ==================== -->
-  <div class="bg-gradient-to-r from-[#170306] via-[#2d070e] to-[#170306] border-b border-amber-900/40 text-[11px] text-center py-2 px-4 text-amber-200/90 tracking-widest uppercase">
-    ✨ 100% Certified 92.5 Hallmarked Silver • Mochi Market, Agarsain Chowk, Hanumangarh
+  <!-- TOP PURITY BAR -->
+  <div class="bg-palace-sand border-b border-palace-border py-2 px-4 text-center">
+    <p class="text-[11px] sm:text-xs font-cinzel tracking-[0.2em] text-palace-navy uppercase flex items-center justify-center space-x-2">
+      <span class="text-rajputana-goldleaf">❖</span>
+      <span>100% Certified 92.5 Hallmark Shuddh Chandi • All-India Secure Express Courier</span>
+      <span class="text-rajputana-goldleaf">❖</span>
+    </p>
   </div>
 
-  <!-- ==================== HEADER ==================== -->
-  <header class="sticky top-0 z-40 bg-[#07080a]/95 backdrop-blur-xl border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-palace-border">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
-      <!-- Brand & Monogram -->
-      <a href="#home" class="flex items-center space-x-3.5 group">
-        <div class="w-12 h-12 rounded-full border border-[#d4af37]/60 bg-gradient-to-br from-[#3b080f] to-black flex items-center justify-center shadow-lg group-hover:scale-105 transition duration-300">
-          <span class="font-luxury text-xl font-bold gold-sheen">AJ</span>
+      <!-- Brand Logo in Header -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-12 h-12 rounded-full border border-rajputana-goldleaf/50 overflow-hidden bg-white shadow-sm flex items-center justify-center">
+          <img src="logo.png" alt="Akshay Jewellers" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=200&q=80'" class="w-full h-full object-cover">
         </div>
         <div>
-          <h2 class="font-luxury text-lg sm:text-xl font-extrabold tracking-[0.16em] gold-sheen leading-none">AKSHAY JEWELLERS</h2>
-          <p class="text-[9px] tracking-[0.26em] uppercase text-slate-400 font-medium mt-1">92.5 Hallmarked Silver</p>
+          <span class="font-cinzel text-xl font-bold tracking-[0.22em] text-palace-navy block leading-none">AKSHAY</span>
+          <span class="font-cormorant text-[11px] tracking-[0.3em] text-silver-matte uppercase italic block mt-1">925 Pure Silver Atelier</span>
         </div>
       </a>
 
-      <!-- Navigation & Actions -->
-      <div class="flex items-center space-x-3 sm:space-x-5">
-        <a href="tel:9602378621" class="hidden md:flex items-center space-x-2 text-xs text-slate-300 hover:text-white luxury-card px-3.5 py-2 rounded-xl transition">
-          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span>+91 9602378621</span>
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-4 sm:space-x-5">
+        <!-- Replay Flute Melody -->
+        <button onclick="playSoftBansuri()" class="p-2 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand transition" title="Play Flute Melody">
+          <i data-lucide="music" class="w-4 h-4 text-rajputana-goldleaf"></i>
+        </button>
+
+        <!-- WhatsApp Support -->
+        <a href="https://wa.me/919649533041?text=Khamma%20Ghani!%20Mujhe%20Akshay%20Jewellers%20ke%20Silver%20collection%20ke%20bare%20mein%20poochna%20hai" target="_blank" class="hidden sm:flex items-center space-x-2 text-xs font-cinzel tracking-wider px-4 py-2 rounded-full border border-palace-border text-palace-navy hover:border-palace-navy transition">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span>Royal Help</span>
         </a>
 
-        <!-- Search button -->
-        <button onclick="focusSearch()" class="p-2.5 rounded-xl luxury-card text-slate-300 hover:text-white" title="Search">
-          <i data-lucide="search" class="w-4 h-4"></i>
-        </button>
-
         <!-- Cart Button -->
-        <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl luxury-card text-slate-200 hover:text-white">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+        <button onclick="toggleCart()" class="relative p-2 rounded-full border border-palace-border text-palace-navy hover:bg-palace-sand transition">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 bg-rajputana-vermilion text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
         </button>
 
-        <!-- Admin Access Button -->
-        <button onclick="openAdminPortal()" class="text-[11px] border border-slate-700/80 hover:border-amber-500/60 px-3 py-1.5 rounded-xl text-slate-400 hover:text-amber-300 transition">
-          Owner Portal
+        <!-- Admin Portal Key -->
+        <button onclick="openAdmin()" class="text-silver-matte hover:text-palace-navy p-1" title="Store Access">
+          <i data-lucide="lock" class="w-4 h-4"></i>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section id="home" class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
-    <div class="luxury-card rounded-3xl p-6 sm:p-12 relative overflow-hidden border border-slate-800">
-      <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#4a0812]/30 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-        <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-black/60 border border-amber-900/60 text-[10px] uppercase tracking-[0.2em] text-amber-300">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-            <span>Certified 92.5 Sterling Silver</span>
-          </div>
-
-          <h1 class="font-luxury text-3xl sm:text-5xl font-extrabold tracking-wide text-white leading-tight">
-            Timeless Silver. <br>
-            <span class="silver-sheen italic">Crafted to Perfection.</span>
-          </h1>
-
-          <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-            Explore authentic 92.5 Hallmarked Silver Jewellery designed for modern grace and everyday elegance. Shop with convenience using our <strong>Partial COD (Cash on Delivery)</strong> facility.
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-            <a href="#catalogue" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-slate-100 to-slate-300 hover:from-white hover:to-slate-200 text-slate-950 font-bold text-xs uppercase tracking-wider transition shadow-lg text-center">
-              Shop Silver Collection
-            </a>
-            <a href="https://wa.me/919602378621?text=Hello%20Akshay%20Jewellers,%20I%20am%20interested%20in%20your%20pure%20silver%20jewellery%20collection." target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0f241a] hover:bg-[#153426] border border-emerald-600/60 text-emerald-400 font-semibold text-xs flex items-center justify-center space-x-2 transition">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
-              <span>WhatsApp Enquiry</span>
-            </a>
-          </div>
-
-          <!-- Feature badges -->
-          <div class="grid grid-cols-3 gap-2 pt-6 border-t border-slate-800/80 text-left">
-            <div>
-              <p class="text-white text-xs font-semibold">92.5 Pure</p>
-              <p class="text-[10px] text-slate-500">Government Certified</p>
-            </div>
-            <div>
-              <p class="text-white text-xs font-semibold">Partial COD</p>
-              <p class="text-[10px] text-slate-500">₹1,000 Advance Only</p>
-            </div>
-            <div>
-              <p class="text-white text-xs font-semibold">Hanumangarh</p>
-              <p class="text-[10px] text-slate-500">Agarsain Chowk Store</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Display Card -->
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="relative w-full max-w-sm rounded-2xl p-1 bg-gradient-to-b from-[#4a0812] via-slate-800 to-slate-900 shadow-2xl">
-            <div class="bg-[#0e1014] rounded-2xl p-5 space-y-4">
-              <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-950">
-                <img src="https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop" alt="Silver Kada" class="w-full h-full object-cover transform hover:scale-105 transition duration-500" />
-                <span class="absolute top-3 left-3 bg-black/80 px-2.5 py-1 rounded text-[9px] uppercase font-bold tracking-widest text-amber-200 border border-amber-900/60">
-                  92.5 Hallmarked
-                </span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-[9px] uppercase tracking-wider text-slate-500">Signature Collection</p>
-                  <h3 class="font-luxury text-sm font-bold text-white">Imperial Gents Silver Kada</h3>
-                </div>
-                <div class="text-right">
-                  <span class="text-base font-bold text-white">₹5,000</span>
-                  <p class="text-[9px] text-emerald-400">₹1,000 Advance</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- LIGHT EDITORIAL HERO -->
+  <section class="relative py-16 sm:py-24 px-6 text-center border-b border-palace-border">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-palace-border bg-white mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-rajputana-vermilion"></span>
+        <span class="font-cinzel text-[11px] tracking-[0.25em] text-palace-navy uppercase">Shuddh 925 Hallmark Chandi</span>
       </div>
+
+      <h1 class="font-italiana text-4xl sm:text-6xl md:text-7xl text-palace-navy font-normal tracking-[0.05em] uppercase mb-6 leading-tight">
+        Heirloom Silver <br>
+        <span class="font-cormorant italic text-3xl sm:text-5xl text-silver-matte lowercase font-light">of royal rajputana heritage</span>
+      </h1>
+
+      <p class="font-cormorant text-lg sm:text-2xl text-palace-navy/80 max-w-2xl mx-auto italic mb-10 leading-relaxed font-light">
+        Traditional hand-crafted silver payal, heavy rajwadi kada, sacred idols, and everyday sterling chains crafted with purity.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-cinzel tracking-[0.2em] uppercase">
+        <a href="#collection" class="w-full sm:w-auto px-8 py-3.5 bg-palace-navy text-white rounded-full hover:bg-rajputana-vermilion transition shadow-md">
+          Explore Pure Silver
+        </a>
+        <a href="#advancePolicy" class="w-full sm:w-auto px-8 py-3.5 border border-palace-navy text-palace-navy rounded-full hover:bg-palace-sand transition">
+          20% Advance COD Policy
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- ==================== CATEGORIES SELECTION ==================== -->
-  <section id="catalogue" class="max-w-7xl mx-auto px-4 sm:px-6 pt-10">
-    <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between pb-4">
+  <!-- CATEGORY SELECTOR -->
+  <section id="collection" class="max-w-7xl mx-auto px-6 py-14">
+    <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-8">
       <div>
-        <h2 class="font-luxury text-xl sm:text-2xl font-bold tracking-wider text-white flex items-center">
-          <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-amber-400"></i> Shop By Category
-        </h2>
-        <p class="text-[11px] text-slate-400 mt-0.5">Select any category to view exclusive designs</p>
+        <h3 class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-palace-navy">ROYAL SILVER COLLECTION</h3>
+        <p class="font-cormorant text-base text-silver-matte italic">Pure 925 certified chandi handcrafted in Rajasthan</p>
       </div>
-
-      <!-- Quick Search Bar -->
-      <div class="relative w-full sm:w-72">
-        <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Search Rings, Kada, Payal..." class="w-full bg-[#121418] border border-slate-700/80 rounded-2xl px-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
-        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3.5 top-3"></i>
-      </div>
+      <span class="text-xs font-cinzel text-silver-matte tracking-widest uppercase" id="itemCountDisplay">Showing all</span>
     </div>
 
     <!-- Category Filter Chips -->
-    <div id="categoryContainer" class="flex gap-2 overflow-x-auto py-2 custom-scroll">
-      <!-- Injected by JavaScript -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar text-xs font-cinzel tracking-wider uppercase">
+      <button onclick="filterCategory('All')" class="cat-pill px-5 py-2 rounded-full border border-palace-navy bg-palace-navy text-white font-bold transition">All</button>
+      <button onclick="filterCategory('Payal')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Payal</button>
+      <button onclick="filterCategory('Kada & Bracelets')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Kada</button>
+      <button onclick="filterCategory('Chains')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Chains</button>
+      <button onclick="filterCategory('Rings')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Rings</button>
+      <button onclick="filterCategory('Pooja Articles')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pooja Silver</button>
+      <button onclick="filterCategory('Necklaces')" class="cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition">Pendants</button>
+    </div>
+
+    <!-- PRODUCT DISPLAY GRID -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"></div>
+  </section>
+
+  <!-- ASSURANCE POLICY STRIP -->
+  <section id="advancePolicy" class="border-y border-palace-border bg-palace-sand py-16 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
+        <i data-lucide="shield-check" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
+        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">925 Hallmark Guaranteed</h4>
+        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Certified authentic 92.5% silver hallmark stamped into every single piece.</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
+        <i data-lucide="credit-card" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
+        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">20% Booking Advance</h4>
+        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Pay only 20% token advance online; pay balance 80% with confidence at delivery.</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl border border-palace-border shadow-sm">
+        <i data-lucide="package-check" class="w-7 h-7 mx-auto mb-3 text-palace-navy"></i>
+        <h4 class="font-cinzel text-sm tracking-widest text-palace-navy uppercase font-bold mb-2">Velvet Box Delivery</h4>
+        <p class="font-cormorant text-base text-silver-matte leading-relaxed">Delivered across India in insured royal velvet boxes directly from Rajasthan.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== PRODUCT CATALOGUE GRID ==================== -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
-    <div class="flex items-center justify-between mb-5">
-      <h3 id="activeCategoryHeading" class="font-luxury text-lg sm:text-xl font-bold tracking-wide text-white">All Silver Jewellery</h3>
-      <span id="productCounter" class="text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">0 items</span>
-    </div>
-
-    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-6">
-      <!-- Dynamic Products loaded via JS -->
-    </div>
-  </main>
-
-  <!-- ==================== ABOUT & STORE INFORMATION ==================== -->
-  <footer class="max-w-7xl mx-auto px-4 sm:px-6 mt-20 pt-10 border-t border-slate-800/80 text-xs">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 luxury-card p-6 sm:p-8 rounded-3xl">
-      <div class="space-y-2">
-        <div class="flex items-center space-x-2.5">
-          <div class="w-7 h-7 rounded-full border border-amber-500/60 bg-[#2e060c] flex items-center justify-center font-luxury font-bold text-amber-200 text-xs">AJ</div>
-          <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">AKSHAY JEWELLERS</h4>
-        </div>
-        <p class="text-slate-400 leading-relaxed text-[11px] pt-1">
-          Mochi Market, Agarsain Chowk,<br>
-          Hanumangarh, Rajasthan, India
-        </p>
-        <span class="inline-block px-2.5 py-1 rounded-md bg-slate-800 text-[10px] text-amber-300 font-medium">
-          ✓ 100% Certified 92.5 Hallmark Guarantee
-        </span>
-      </div>
-
-      <div class="space-y-2">
-        <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">Direct Inquiries</h4>
-        <p class="text-slate-400 text-[11px]">For custom sizing and hallmarking details:</p>
-        <div class="space-y-1 pt-1 font-medium text-slate-200">
-          <p><a href="tel:9602378621" class="hover:text-amber-400 transition">📞 +91 9602378621</a></p>
-          <p><a href="tel:7665426149" class="hover:text-amber-400 transition">📞 +91 7665426149</a></p>
-        </div>
-      </div>
-
-      <div class="space-y-2">
-        <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">Partial COD Terms</h4>
-        <p class="text-slate-400 leading-relaxed text-[11px]">
-          Example: For a ₹5,000 piece, pay ₹1,000 as booking advance and remaining ₹4,000 upon cash on delivery arrival.
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center py-6 text-[11px] text-slate-500">
-      © <span id="currentYear"></span> Akshay Jewellers. All Rights Reserved.
+  <!-- FOOTER -->
+  <footer class="bg-white py-12 px-6 text-center border-t border-palace-border">
+    <div class="max-w-6xl mx-auto">
+      <span class="font-cinzel text-xl tracking-[0.3em] text-palace-navy font-bold uppercase block mb-1">AKSHAY JEWELLERS</span>
+      <p class="font-cormorant text-sm text-silver-matte italic mb-6">Makers of Pure 925 Hallmark Silver Ornaments</p>
+      <p class="text-[11px] font-cinzel tracking-widest text-silver-matte">
+        © 2026 AKSHAY JEWELLERS • PURE 925 HALLMARK SILVER • ALL RIGHTS RESERVED
+      </p>
     </div>
   </footer>
 
-  <!-- ==================== FLOATING WHATSAPP TRIGGER ==================== -->
-  <a href="https://wa.me/919602378621?text=Hello%20Akshay%20Jewellers,%20I%20have%20an%20enquiry%20regarding%20silver%20jewellery." target="_blank" class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-3.5 rounded-full shadow-2xl transition hover:scale-110 flex items-center justify-center border-2 border-black" title="WhatsApp Chat">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
-  </a>
-
-  <!-- ==================== CART DRAWER ==================== -->
-  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex justify-end">
-    <div class="bg-[#0b0d10] border-l border-slate-800 w-full max-w-md h-full flex flex-col p-6 overflow-y-auto">
-      
-      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-        <h3 class="font-luxury text-lg font-bold text-white flex items-center">
-          <i data-lucide="shopping-bag" class="w-4 h-4 mr-2 text-amber-400"></i> Shopping Bag
-        </h3>
-        <button onclick="toggleCartDrawer(false)" class="p-1 rounded-lg text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Items List -->
-      <div id="cartItemsList" class="flex-1 py-4 space-y-3 overflow-y-auto">
-        <!-- Rendered by JS -->
-      </div>
-
-      <!-- Partial COD Breakdown -->
-      <div class="border-t border-slate-800 pt-4 space-y-3 text-xs">
-        <div class="flex justify-between text-slate-300">
-          <span>Total Order Value</span>
-          <span id="cartSubtotal" class="font-bold text-white text-sm">₹0</span>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-[#13161c] border border-slate-800 space-y-2">
-          <div class="flex justify-between text-emerald-400 font-semibold">
-            <span>Online Advance (<span id="advanceRuleLabel">20%</span>)</span>
-            <span id="cartAdvance" class="text-sm">₹0</span>
+  <!-- CART MODAL -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-full max-w-sm bg-white h-full p-6 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between border-b border-palace-border pb-4 mb-4">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-palace-navy"></i>
+            <h3 class="font-cinzel text-base tracking-wider text-palace-navy font-bold">YOUR SILVER SELECTION</h3>
           </div>
-          <div class="flex justify-between text-slate-400 font-medium">
-            <span>Balance to Pay on Delivery (COD)</span>
-            <span id="cartBalance" class="text-sm">₹0</span>
-          </div>
-          <p class="text-[10px] text-slate-500 pt-1.5 border-t border-slate-800/80">
-            *Safe & verified: pay nominal token advance now, rest upon courier delivery.
-          </p>
-        </div>
-
-        <button onclick="sendOrderViaWhatsApp()" class="w-full py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-2xl text-xs flex items-center justify-center space-x-2 transition shadow-lg">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Order Confirmation Via WhatsApp</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ==================== OWNER / ADMIN BACKEND PORTAL ==================== -->
-  <div id="adminModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="bg-[#101216] border border-slate-700/80 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
-      <button onclick="closeAdminPortal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <!-- Admin Passcode View -->
-      <div id="adminLoginView" class="max-w-xs mx-auto text-center py-10 space-y-4">
-        <div class="w-12 h-12 rounded-full border border-amber-500/60 bg-[#2e060c] flex items-center justify-center mx-auto text-amber-200 font-luxury font-bold text-lg">AJ</div>
-        <h3 class="font-luxury text-lg font-bold text-white">Owner Portal Login</h3>
-        <p class="text-xs text-slate-400">Default Passcode: <code class="text-amber-300">silver925</code></p>
-        
-        <form onsubmit="handleAdminLogin(event)" class="space-y-3">
-          <input type="password" id="adminPasswordInput" placeholder="Enter owner passcode" class="w-full bg-[#171a20] border border-slate-700 rounded-xl px-3 py-2 text-white text-xs focus:outline-none" required />
-          <button type="submit" class="w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-xl text-xs transition">
-            Unlock Dashboard
+          <button onclick="toggleCart()" class="text-silver-matte hover:text-palace-navy">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
-        </form>
+        </div>
+
+        <div id="cartItemsContainer" class="space-y-3 max-h-[60vh] overflow-y-auto pr-2 no-scrollbar"></div>
       </div>
 
-      <!-- Admin Panel View -->
-      <div id="adminDashboardView" class="hidden space-y-6">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-          <div>
-            <h3 class="font-luxury text-lg font-bold text-white">Shop Inventory & Pricing Manager</h3>
-            <p class="text-[11px] text-slate-400">Akshay Jewellers HMO Store Backend</p>
-          </div>
-          <button onclick="logoutAdmin()" class="text-xs text-rose-400 hover:underline">Exit Portal</button>
+      <div class="border-t border-palace-border pt-4 space-y-3 font-cinzel">
+        <div class="flex justify-between text-xs text-silver-matte">
+          <span>Total Silver Value:</span>
+          <span id="cartSubtotal" class="font-bold text-palace-navy text-sm">₹0</span>
+        </div>
+        <div class="flex justify-between text-xs text-rajputana-vermilion font-semibold">
+          <span>20% Booking Advance:</span>
+          <span id="cartAdvance">₹0</span>
+        </div>
+        <div class="flex justify-between text-[11px] text-silver-matte">
+          <span>Balance on COD:</span>
+          <span id="cartRemaining">₹0</span>
         </div>
 
-        <!-- Add Product Form -->
-        <div class="p-4 rounded-2xl bg-[#14171d] border border-slate-800 space-y-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">+ Add New Silver Jewellery Listing</h4>
-          <form onsubmit="handleAddNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <input type="text" id="newTitle" placeholder="Product Name (e.g. Royal Gents Bali)" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
-            <select id="newCatSelect" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-slate-300">
-              <!-- Dynamically populated -->
-            </select>
-            <input type="number" id="newPrice" placeholder="Price (₹)" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
-            <input type="url" id="newImage" placeholder="Direct Photo URL / Image Link" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
-            <div class="col-span-1 sm:col-span-2 flex justify-end">
-              <button type="submit" class="px-5 py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold rounded-xl text-xs">
-                Save & Publish
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <!-- Active Inventory Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-[#14171d] text-slate-400 uppercase text-[10px]">
-              <tr>
-                <th class="p-2.5">Item</th>
-                <th class="p-2.5">Category</th>
-                <th class="p-2.5">Price</th>
-                <th class="p-2.5 text-right">Action</th>
-              </tr>
-            </thead>
-            <tbody id="adminInventoryTable" class="divide-y divide-slate-800">
-              <!-- Rendered by JS -->
-            </tbody>
-          </table>
-        </div>
+        <button onclick="proceedToOrder()" class="w-full py-3.5 bg-palace-navy text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-rajputana-vermilion transition flex items-center justify-center space-x-2 mt-2 shadow-lg">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Order via WhatsApp</span>
+        </button>
       </div>
-
     </div>
   </div>
 
-  <!-- ==================== APPLICATION SCRIPTS ==================== -->
-  <script>
-    // 15 Standard Silver Categories
-    const CATEGORIES = [
-      "All", "Ring", "Chain", "Locket", "Bracelet", "Kda",
-      "Payal", "Necklace", "Ladies Kda", "Earrings", "Gents Stud",
-      "Nazariya", "Baby Kda", "Gents Bali", "Mangalsutra", "Radha Krishna Lockets"
-    ];
+  <!-- ADMIN PASSCODE MODAL -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-xs bg-white p-6 rounded-2xl text-center border border-palace-border shadow-2xl">
+      <i data-lucide="lock" class="w-7 h-7 text-palace-navy mx-auto mb-3"></i>
+      <h3 class="font-cinzel text-sm tracking-wider text-palace-navy uppercase font-bold mb-4">OWNER LOGIN</h3>
+      <input type="password" id="adminPass" placeholder="Passcode (silver925)" class="w-full px-3 py-2 border border-palace-border text-center text-xs mb-4 rounded-lg focus:outline-none focus:border-palace-navy">
+      <div class="flex gap-2 font-cinzel text-xs">
+        <button onclick="closeAdmin()" class="w-1/2 py-2 border border-palace-border text-silver-matte rounded-lg">Cancel</button>
+        <button onclick="verifyAdmin()" class="w-1/2 py-2 bg-palace-navy text-white font-bold rounded-lg">Unlock</button>
+      </div>
+    </div>
+  </div>
 
-    // Master Product Catalog
-    let products = [
+  <script>
+    const defaultCatalog = [
       {
         id: 1,
-        name: "Royal 92.5 Solitaire Silver Ring",
-        category: "Ring",
-        price: 2500,
-        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop"
+        title: "Traditional Ghungroo Silver Payal",
+        category: "Payal",
+        purity: "925 Pure Silver",
+        weight: "140 grams",
+        price: 13999,
+        image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=700&q=80",
+        desc: "Handcrafted bridal anklets with soothing antique melodious ghungroos."
       },
       {
         id: 2,
-        name: "Imperial Gents Heavy Silver Kada",
-        category: "Kda",
-        price: 5000,
-        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
+        title: "Solid Sterling Silver Bahubali Kada",
+        category: "Kada & Bracelets",
+        purity: "92.5% Solid Silver",
+        weight: "82 grams",
+        price: 8600,
+        image: "https://images.unsplash.com/photo-1611591475102-460c7f58d002?auto=format&fit=crop&w=700&q=80",
+        desc: "Heavy weight carved solid silver gent's kada with anti-tarnish rhodium coat."
       },
       {
         id: 3,
-        name: "Heritage Silver Payal Pair",
-        category: "Payal",
-        price: 3600,
-        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop"
+        title: "Radha Krishna Shringar Locket",
+        category: "Necklaces",
+        purity: "925 Hallmark Pure",
+        weight: "28 grams",
+        price: 3400,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80",
+        desc: "Devotional Radha Krishna medallion paired with sleek 925 silver chain."
       },
       {
         id: 4,
-        name: "Italian Precision Curb Silver Chain",
-        category: "Chain",
-        price: 3200,
-        image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=600&auto=format&fit=crop"
+        title: "Classic Solitaire Filigree Ring",
+        category: "Rings",
+        purity: "925 Pure Silver",
+        weight: "12 grams",
+        price: 1850,
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80",
+        desc: "Sculpted sterling silver band designed for daily elegance and comfort."
       },
       {
         id: 5,
-        name: "Divine Radha Krishna Carved Locket",
-        category: "Radha Krishna Lockets",
-        price: 2200,
-        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop"
+        title: "Pure Silver Lakshmi-Ganesh Idol Set",
+        category: "Pooja Articles",
+        purity: "99.9% Shuddh Chandi",
+        weight: "110 grams",
+        price: 12200,
+        image: "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=700&q=80",
+        desc: "Sacred silver deities for home mandir, Diwali puja, and royal gifting."
       },
       {
         id: 6,
-        name: "Artisanal Ladies Floral Silver Kda",
-        category: "Ladies Kda",
-        price: 4800,
-        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
-      },
-      {
-        id: 7,
-        name: "Minimalist Gents Pure Silver Bali",
-        category: "Gents Bali",
-        price: 950,
-        image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=600&auto=format&fit=crop"
-      },
-      {
-        id: 8,
-        name: "Traditional Baby Silver Kda Pair",
-        category: "Baby Kda",
-        price: 1900,
-        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
+        title: "Handcrafted Curb Silver Chain",
+        category: "Chains",
+        purity: "925 Pure Silver",
+        weight: "42 grams",
+        price: 4700,
+        image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=80",
+        desc: "Solid interlocking silver chain with brilliant diamond-cut high shine."
       }
     ];
 
-    let currentCategory = "All";
     let cart = [];
+    let currentFilter = 'All';
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-      renderCategoryChips();
-      renderProducts();
-      populateAdminCategories();
+    // ========================================================
+    // SWEET & SOFT BANSURI (FLUTE) 4-SECOND MELODY
+    // ========================================================
+    function playSoftBansuri() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioContext();
 
-      // Auto dismiss intro splash after 2.4s
-      setTimeout(() => {
-        dismissSplash();
-      }, 2400);
+        // Authentic Peaceful Flute Notes (Raag Maand)
+        const fluteNotes = [
+          { f: 440.00, t: 0.00, d: 0.80 },  // Dha
+          { f: 493.88, t: 0.50, d: 0.75 },  // Ni
+          { f: 587.33, t: 1.05, d: 1.00 },  // Sa (High Resonance)
+          { f: 659.25, t: 1.80, d: 0.85 },  // Re (Grace bend)
+          { f: 587.33, t: 2.35, d: 0.75 },  // Sa
+          { f: 440.00, t: 2.90, d: 1.20 }   // Calming finishing tone
+        ];
 
-      lucide.createIcons();
-    });
+        fluteNotes.forEach(note => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
 
-    function dismissSplash() {
-      const splash = document.getElementById('splashScreen');
-      if (splash) {
-        splash.classList.add('opacity-0', 'pointer-events-none');
-        setTimeout(() => splash.remove(), 900);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(note.f, ctx.currentTime + note.t);
+
+          // Subtle breath vibrato
+          const vibrato = ctx.createOscillator();
+          const vibratoGain = ctx.createGain();
+          vibrato.frequency.value = 5.2;
+          vibratoGain.gain.value = 3.5;
+          vibrato.connect(osc.frequency);
+          vibrato.start(ctx.currentTime + note.t);
+          vibrato.stop(ctx.currentTime + note.t + note.d);
+
+          // Smooth breath attack & delicate fade-out
+          gain.gain.setValueAtTime(0.0001, ctx.currentTime + note.t);
+          gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + note.t + 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + note.t + note.d);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(ctx.currentTime + note.t);
+          osc.stop(ctx.currentTime + note.t + note.d);
+        });
+
+      } catch (e) {
+        console.log("Bansuri ready:", e);
       }
     }
 
-    function focusSearch() {
-      const el = document.getElementById('searchInput');
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el.focus();
-    }
+    // DIRECT 3D GATE OPENING (TAP ANYWHERE ON GATE)
+    function openHaveliGates() {
+      const gateLeft = document.getElementById('gateLeft');
+      const gateRight = document.getElementById('gateRight');
+      const welcomeBadge = document.getElementById('welcomeBadge');
+      const gateContainer = document.getElementById('gateContainer');
 
-    function renderCategoryChips() {
-      const container = document.getElementById('categoryContainer');
-      container.innerHTML = CATEGORIES.map(cat => `
-        <button onclick="setCategory('${cat}')" class="whitespace-nowrap px-4 py-2 rounded-2xl text-xs transition duration-200 border ${
-          currentCategory === cat
-          ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold border-amber-300 shadow-md'
-          : 'bg-[#121418] text-slate-300 border-slate-800 hover:border-slate-600'
-        }">
-          ${cat}
-        </button>
-      `).join('');
-    }
+      // 1. Play sweet 4-sec flute
+      playSoftBansuri();
 
-    function setCategory(cat) {
-      currentCategory = cat;
-      renderCategoryChips();
-      renderProducts();
+      // 2. Fade out welcome badge
+      if(welcomeBadge) {
+        welcomeBadge.style.opacity = '0';
+        welcomeBadge.style.transform = 'scale(0.8)';
+      }
+
+      // 3. 3D Swing open both palace doors
+      setTimeout(() => {
+        gateLeft.classList.add('gate-opened-left');
+        gateRight.classList.add('gate-opened-right');
+      }, 120);
+
+      // 4. Remove gate container completely
+      setTimeout(() => {
+        gateContainer.style.display = 'none';
+      }, 1500);
     }
 
     function renderProducts() {
-      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
       const grid = document.getElementById('productGrid');
-      const counter = document.getElementById('productCounter');
-      const heading = document.getElementById('activeCategoryHeading');
+      const filtered = currentFilter === 'All' 
+        ? defaultCatalog 
+        : defaultCatalog.filter(p => p.category === currentFilter);
 
-      heading.textContent = currentCategory === "All" ? "All Silver Jewellery" : `${currentCategory} Collection`;
+      document.getElementById('itemCountDisplay').innerText = `Showing ${filtered.length} Ornaments`;
 
-      const list = products.filter(p => {
-        const matchesCategory = (currentCategory === "All" || p.category === currentCategory);
-        const matchesSearch = p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
-        return matchesCategory && matchesSearch;
-      });
-
-      counter.textContent = `${list.length} item(s)`;
-
-      if (list.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full py-16 text-center text-slate-500 text-xs">
-            <i data-lucide="package-open" class="w-8 h-8 mx-auto mb-2 opacity-40"></i>
-            No silver jewellery found in this category.
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-white border border-palace-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-palace-sand/50">
+            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+            <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm border border-palace-border text-[10px] tracking-wider uppercase text-palace-navy px-3 py-1 rounded-full font-cinzel font-semibold shadow-sm">
+              ${item.purity}
+            </span>
           </div>
-        `;
-        lucide.createIcons();
-        return;
-      }
 
-      grid.innerHTML = list.map(item => {
-        const advance = Math.round(item.price * 0.20);
-        const cod = item.price - advance;
-
-        return `
-          <div class="luxury-card rounded-3xl overflow-hidden flex flex-col justify-between">
+          <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
-              <div class="relative aspect-square overflow-hidden bg-slate-950">
-                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transform hover:scale-105 transition duration-500" />
-                <span class="absolute top-2.5 left-2.5 bg-black/80 px-2 py-0.5 rounded-md text-[9px] uppercase font-bold tracking-wider text-amber-200 border border-amber-900/60">
-                  92.5 Silver
-                </span>
-              </div>
-              <div class="p-3.5 sm:p-4">
-                <span class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">${item.category}</span>
-                <h4 class="font-luxury text-sm sm:text-base font-bold text-white truncate mt-0.5">${item.name}</h4>
-                <p class="text-sm sm:text-base font-bold text-white mt-1">₹${item.price.toLocaleString('en-IN')}</p>
-                
-                <!-- Partial COD Badge -->
-                <div class="mt-2.5 p-2 rounded-xl bg-black/40 border border-slate-800 text-[10px] space-y-0.5">
-                  <p class="text-emerald-400 font-medium">Advance: <strong>₹${advance}</strong></p>
-                  <p class="text-slate-400">Balance on COD: ₹${cod}</p>
-                </div>
-              </div>
+              <span class="text-[10px] font-cinzel text-silver-matte tracking-[0.2em] uppercase block mb-1.5">${item.category} • ${item.weight}</span>
+              <h4 class="font-cinzel text-base font-bold text-palace-navy tracking-wide mb-2">${item.title}</h4>
+              <p class="font-cormorant text-base text-silver-matte leading-relaxed mb-5 italic">${item.desc}</p>
             </div>
 
-            <div class="p-3.5 sm:p-4 pt-0 grid grid-cols-2 gap-2">
-              <button onclick="addToCart(${item.id})" class="py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-[11px] font-medium flex items-center justify-center space-x-1 transition">
+            <div class="pt-4 border-t border-palace-border">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="font-cinzel text-lg font-bold text-palace-navy">₹${item.price.toLocaleString('en-IN')}</span>
+                <span class="text-[11px] font-cinzel text-rajputana-vermilion font-medium">20% Adv: ₹${Math.round(item.price * 0.2).toLocaleString('en-IN')}</span>
+              </div>
+              <button onclick="addToCart(${item.id})" class="w-full py-2.5 rounded-full border border-palace-navy text-palace-navy hover:bg-palace-navy hover:text-white transition text-xs font-cinzel tracking-[0.15em] uppercase font-bold flex items-center justify-center space-x-2">
                 <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                <span>Add Bag</span>
-              </button>
-              <button onclick="enquireItemOnWhatsApp(${item.id})" class="py-2.5 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-700/60 text-emerald-400 rounded-xl text-[11px] font-medium flex items-center justify-center space-x-1 transition">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-                <span>Enquiry</span>
+                <span>Add to Bag</span>
               </button>
             </div>
           </div>
-        `;
-      }).join('');
+        </div>
+      `).join('');
 
       lucide.createIcons();
     }
 
-    // Cart Engine
-    function addToCart(id) {
-      const item = products.find(p => p.id === id);
-      if (!item) return;
-
-      const existing = cart.find(c => c.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...item, qty: 1 });
-      }
-      updateCartUI();
-      toggleCartDrawer(true);
+    function filterCategory(cat) {
+      currentFilter = cat;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        if(p.innerText.toLowerCase() === cat.toLowerCase() || (cat === 'All' && p.innerText.toLowerCase() === 'all')) {
+          p.className = 'cat-pill px-5 py-2 rounded-full border border-palace-navy bg-palace-navy text-white font-bold transition';
+        } else {
+          p.className = 'cat-pill px-5 py-2 rounded-full border border-palace-border bg-white text-palace-navy hover:border-palace-navy transition';
+        }
+      });
+      renderProducts();
     }
 
-    function changeQty(id, delta) {
-      const item = cart.find(c => c.id === id);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(c => c.id !== id);
-      }
+    function addToCart(id) {
+      const prod = defaultCatalog.find(p => p.id === id);
+      cart.push(prod);
       updateCartUI();
+      toggleCart(true);
     }
 
     function updateCartUI() {
-      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
-      document.getElementById('cartCountBadge').textContent = totalCount;
-
-      const list = document.getElementById('cartItemsList');
-      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const advance = Math.round(subtotal * 0.20);
-      const balance = subtotal - advance;
-
-      if (cart.length === 0) {
-        list.innerHTML = `
-          <div class="h-44 flex flex-col items-center justify-center text-slate-500 text-xs">
-            <i data-lucide="shopping-bag" class="w-7 h-7 mb-2 opacity-30"></i>
-            Your shopping bag is empty.
-          </div>
-        `;
-      } else {
-        list.innerHTML = cart.map(i => `
-          <div class="flex items-center justify-between p-3 rounded-2xl bg-[#14171d] border border-slate-800 text-xs">
-            <div>
-              <p class="font-semibold text-white truncate max-w-[170px]">${i.name}</p>
-              <p class="text-slate-400 text-[11px] mt-0.5">₹${i.price} × ${i.qty}</p>
-            </div>
-            <div class="flex items-center space-x-2">
-              <button onclick="changeQty(${i.id}, -1)" class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">-</button>
-              <span class="font-bold text-white text-xs">${i.qty}</span>
-              <button onclick="changeQty(${i.id}, 1)" class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">+</button>
-            </div>
-          </div>
-        `).join('');
+      document.getElementById('cartCount').innerText = cart.length;
+      const container = document.getElementById('cartItemsContainer');
+      
+      if(cart.length === 0) {
+        container.innerHTML = `<p class="font-cormorant text-center text-silver-matte py-8 italic text-lg">Your silver selection is empty.</p>`;
+        document.getElementById('cartSubtotal').innerText = '₹0';
+        document.getElementById('cartAdvance').innerText = '₹0';
+        document.getElementById('cartRemaining').innerText = '₹0';
+        return;
       }
 
-      document.getElementById('cartSubtotal').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
-      document.getElementById('cartAdvance').textContent = `₹${advance.toLocaleString('en-IN')}`;
-      document.getElementById('cartBalance').textContent = `₹${balance.toLocaleString('en-IN')}`;
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      let advance = Math.round(total * 0.2);
+      let rem = total - advance;
+
+      container.innerHTML = cart.map((item, index) => `
+        <div class="flex items-center justify-between p-3 border border-palace-border rounded-xl bg-palace-sand/30">
+          <div>
+            <h5 class="font-cinzel text-xs font-bold text-palace-navy">${item.title}</h5>
+            <p class="font-cormorant text-sm text-silver-matte">₹${item.price.toLocaleString('en-IN')}</p>
+          </div>
+          <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 text-xs font-cinzel">Remove</button>
+        </div>
+      `).join('');
+
+      document.getElementById('cartSubtotal').innerText = `₹${total.toLocaleString('en-IN')}`;
+      document.getElementById('cartAdvance').innerText = `₹${advance.toLocaleString('en-IN')}`;
+      document.getElementById('cartRemaining').innerText = `₹${rem.toLocaleString('en-IN')}`;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function toggleCart(forceOpen = false) {
+      const modal = document.getElementById('cartModal');
+      if (forceOpen) modal.classList.remove('hidden');
+      else modal.classList.toggle('hidden');
       lucide.createIcons();
     }
 
-    function toggleCartDrawer(show) {
-      const modal = document.getElementById('cartDrawer');
-      if (show) modal.classList.remove('hidden');
-      else modal.classList.add('hidden');
+    function proceedToOrder() {
+      if(cart.length === 0) return alert('Kripya pehle koi 925 silver jewellery chunein!');
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      let advance = Math.round(total * 0.2);
+      let rem = total - advance;
+
+      let msg = `Khamma Ghani Akshay Jewellers!\nMujhe 925 Hallmark Silver jewellery order karni hai:\n\n`;
+      cart.forEach((i, idx) => {
+        msg += `${idx+1}. ${i.title} (₹${i.price})\n`;
+      });
+      msg += `\nTotal Silver: ₹${total}\nBooking Advance (20%): ₹${advance}\nBalance on COD: ₹${rem}\n\nKripya mera order confirm karein!`;
+      
+      const phone = "919649533041";
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function enquireItemOnWhatsApp(id) {
-      const item = products.find(p => p.id === id);
-      if (!item) return;
-
-      const advance = Math.round(item.price * 0.20);
-      const cod = item.price - advance;
-
-      const text = encodeURIComponent(
-        `Hello Akshay Jewellers HMO,\nI am interested in this 92.5 Silver product:\n\n` +
-        `• Product: ${item.name} (${item.category})\n` +
-        `• Total Price: ₹${item.price}\n` +
-        `• Partial COD: ₹${advance} Advance | ₹${cod} Balance on COD\n\n` +
-        `Please share more real pictures and confirmation details.`
-      );
-      window.open(`https://wa.me/919602378621?text=${text}`, '_blank');
-    }
-
-    function sendOrderViaWhatsApp() {
-      if (cart.length === 0) return alert('Please add silver jewellery to your bag first.');
-
-      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const advance = Math.round(subtotal * 0.20);
-      const balance = subtotal - advance;
-      const itemList = cart.map(i => `- ${i.name} (Qty: ${i.qty}) = ₹${i.price * i.qty}`).join('\n');
-
-      const text = encodeURIComponent(
-        `*NEW ORDER - AKSHAY JEWELLERS HMO*\n` +
-        `Mochi Market, Agarsain Chowk\n\n` +
-        `*Selected Items:*\n${itemList}\n\n` +
-        `*Total Order Value:* ₹${subtotal}\n` +
-        `*Online Booking Advance (20%):* ₹${advance}\n` +
-        `*Balance COD on Delivery:* ₹${balance}\n\n` +
-        `Please confirm this order and send the advance payment QR.`
-      );
-      window.open(`https://wa.me/919602378621?text=${text}`, '_blank');
-    }
-
-    // Owner Backend Portal Handlers
-    function openAdminPortal() {
+    function openAdmin() {
       document.getElementById('adminModal').classList.remove('hidden');
     }
-    function closeAdminPortal() {
+    function closeAdmin() {
       document.getElementById('adminModal').classList.add('hidden');
     }
-    function handleAdminLogin(e) {
-      e.preventDefault();
-      const pass = document.getElementById('adminPasswordInput').value;
-      if (pass === 'silver925' || pass === 'admin123') {
-        document.getElementById('adminLoginView').classList.add('hidden');
-        document.getElementById('adminDashboardView').classList.remove('hidden');
-        renderAdminTable();
+    function verifyAdmin() {
+      const val = document.getElementById('adminPass').value;
+      if(val === 'silver925') {
+        alert('Access Granted! Store Manager ready.');
+        closeAdmin();
       } else {
-        alert("Invalid Passcode. Use 'silver925'");
+        alert('Galat code. Secret code: silver925');
       }
     }
-    function logoutAdmin() {
-      document.getElementById('adminPasswordInput').value = '';
-      document.getElementById('adminLoginView').classList.remove('hidden');
-      document.getElementById('adminDashboardView').classList.add('hidden');
-    }
-    function populateAdminCategories() {
-      const sel = document.getElementById('newCatSelect');
-      sel.innerHTML = CATEGORIES.filter(c => c !== "All").map(c => `<option value="${c}">${c}</option>`).join('');
-    }
-    function handleAddNewProduct(e) {
-      e.preventDefault();
-      const newP = {
-        id: Date.now(),
-        name: document.getElementById('newTitle').value,
-        category: document.getElementById('newCatSelect').value,
-        price: Number(document.getElementById('newPrice').value),
-        image: document.getElementById('newImage').value
-      };
-      products.unshift(newP);
-      e.target.reset();
-      renderAdminTable();
+
+    window.onload = () => {
       renderProducts();
-      alert("Product published successfully to catalogue!");
-    }
-    function deleteProduct(id) {
-      if (confirm("Delete this jewellery item?")) {
-        products = products.filter(p => p.id !== id);
-        renderAdminTable();
-        renderProducts();
-      }
-    }
-    function renderAdminTable() {
-      const tbody = document.getElementById('adminInventoryTable');
-      tbody.innerHTML = products.map(p => `
-        <tr>
-          <td class="p-2.5 font-medium text-white flex items-center space-x-2">
-            <img src="${p.image}" class="w-8 h-8 rounded-lg object-cover" />
-            <span class="truncate max-w-[150px]">${p.name}</span>
-          </td>
-          <td class="p-2.5">${p.category}</td>
-          <td class="p-2.5 font-bold text-white">₹${p.price.toLocaleString('en-IN')}</td>
-          <td class="p-2.5 text-right">
-            <button onclick="deleteProduct(${p.id})" class="text-rose-400 hover:underline">Remove</button>
-          </td>
-        </tr>
-      `).join('');
-    }
+      lucide.createIcons();
+    };
   </script>
 </body>
 </html>
+
