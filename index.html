@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshay Jewellers | 92.5 Hallmarked Pure Silver</title>
+  <meta name="description" content="Akshay Jewellers, Hanumangarh - Premium 92.5 Hallmarked Silver Jewellery Collection. Rings, Kadas, Chains, Payals, and more with Partial COD." />
+
+  <!-- Tailwind CSS & Google Luxury Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-dark: #07080a;
+      --card-bg: rgba(18, 20, 26, 0.75);
+      --gold-accent: #e6ca65;
+      --maroon-glow: #38080f;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-luxury {
+      font-family: 'Cinzel', serif;
+    }
+    .silver-sheen {
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-sheen {
+      background: linear-gradient(135deg, #fae8a4 0%, #d4af37 50%, #aa820a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .luxury-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(226, 232, 240, 0.12);
+      transition: all 0.35s ease;
+    }
+    .luxury-card:hover {
+      border-color: rgba(212, 175, 55, 0.35);
+      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.08);
+      transform: translateY(-3px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 0 15px rgba(212,175,55,0.4)); }
+      50% { transform: scale(1.04); opacity: 1; filter: drop-shadow(0 0 30px rgba(212,175,55,0.7)); }
+    }
+    .logo-reveal-anim {
+      animation: pulseRing 3.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="selection:bg-amber-900/60 selection:text-white pb-24">
+
+  <!-- ==================== LUXURY INTRO LOGO ANIMATION ==================== -->
+  <div id="splashScreen" class="fixed inset-0 z-50 bg-[#060708] flex flex-col items-center justify-center transition-all duration-1000">
+    <div class="relative flex flex-col items-center p-6 text-center max-w-sm">
+      <!-- Glow Aura -->
+      <div class="absolute w-64 h-64 bg-[#4a0812]/50 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      
+      <!-- Animated Emblem derived from your logo -->
+      <div class="w-28 h-28 rounded-full border-2 border-[#d4af37]/80 bg-gradient-to-b from-[#2e060c] via-[#150205] to-black flex items-center justify-center p-4 logo-reveal-anim shadow-2xl relative mb-6">
+        <div class="absolute -top-3 bg-black px-2 text-[#d4af37]">
+          <i data-lucide="gem" class="w-5 h-5"></i>
+        </div>
+        <span class="font-luxury text-4xl font-extrabold gold-sheen tracking-wider ml-1">AJ</span>
+      </div>
+
+      <h1 class="font-luxury text-2xl sm:text-3xl font-bold tracking-[0.25em] gold-sheen mb-2">AKSHAY JEWELLERS</h1>
+      <p class="text-[10px] tracking-[0.4em] uppercase text-slate-400 font-medium">92.5 Hallmarked Pure Silver</p>
+
+      <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent my-6"></div>
+
+      <button onclick="dismissSplash()" class="text-[11px] text-slate-500 hover:text-[#d4af37] tracking-[0.2em] uppercase transition">
+        Enter Boutique →
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TOP ANNOUNCEMENT ==================== -->
+  <div class="bg-gradient-to-r from-[#170306] via-[#2d070e] to-[#170306] border-b border-amber-900/40 text-[11px] text-center py-2 px-4 text-amber-200/90 tracking-widest uppercase">
+    ✨ 100% Certified 92.5 Hallmarked Silver • Mochi Market, Agarsain Chowk, Hanumangarh
+  </div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-[#07080a]/95 backdrop-blur-xl border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand & Monogram -->
+      <a href="#home" class="flex items-center space-x-3.5 group">
+        <div class="w-12 h-12 rounded-full border border-[#d4af37]/60 bg-gradient-to-br from-[#3b080f] to-black flex items-center justify-center shadow-lg group-hover:scale-105 transition duration-300">
+          <span class="font-luxury text-xl font-bold gold-sheen">AJ</span>
+        </div>
+        <div>
+          <h2 class="font-luxury text-lg sm:text-xl font-extrabold tracking-[0.16em] gold-sheen leading-none">AKSHAY JEWELLERS</h2>
+          <p class="text-[9px] tracking-[0.26em] uppercase text-slate-400 font-medium mt-1">92.5 Hallmarked Silver</p>
+        </div>
+      </a>
+
+      <!-- Navigation & Actions -->
+      <div class="flex items-center space-x-3 sm:space-x-5">
+        <a href="tel:9602378621" class="hidden md:flex items-center space-x-2 text-xs text-slate-300 hover:text-white luxury-card px-3.5 py-2 rounded-xl transition">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>+91 9602378621</span>
+        </a>
+
+        <!-- Search button -->
+        <button onclick="focusSearch()" class="p-2.5 rounded-xl luxury-card text-slate-300 hover:text-white" title="Search">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl luxury-card text-slate-200 hover:text-white">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-gradient-to-r from-amber-500 to-amber-700 text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+        </button>
+
+        <!-- Admin Access Button -->
+        <button onclick="openAdminPortal()" class="text-[11px] border border-slate-700/80 hover:border-amber-500/60 px-3 py-1.5 rounded-xl text-slate-400 hover:text-amber-300 transition">
+          Owner Portal
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
+    <div class="luxury-card rounded-3xl p-6 sm:p-12 relative overflow-hidden border border-slate-800">
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#4a0812]/30 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-black/60 border border-amber-900/60 text-[10px] uppercase tracking-[0.2em] text-amber-300">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>Certified 92.5 Sterling Silver</span>
+          </div>
+
+          <h1 class="font-luxury text-3xl sm:text-5xl font-extrabold tracking-wide text-white leading-tight">
+            Timeless Silver. <br>
+            <span class="silver-sheen italic">Crafted to Perfection.</span>
+          </h1>
+
+          <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            Explore authentic 92.5 Hallmarked Silver Jewellery designed for modern grace and everyday elegance. Shop with convenience using our <strong>Partial COD (Cash on Delivery)</strong> facility.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+            <a href="#catalogue" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-slate-100 to-slate-300 hover:from-white hover:to-slate-200 text-slate-950 font-bold text-xs uppercase tracking-wider transition shadow-lg text-center">
+              Shop Silver Collection
+            </a>
+            <a href="https://wa.me/919602378621?text=Hello%20Akshay%20Jewellers,%20I%20am%20interested%20in%20your%20pure%20silver%20jewellery%20collection." target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0f241a] hover:bg-[#153426] border border-emerald-600/60 text-emerald-400 font-semibold text-xs flex items-center justify-center space-x-2 transition">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp Enquiry</span>
+            </a>
+          </div>
+
+          <!-- Feature badges -->
+          <div class="grid grid-cols-3 gap-2 pt-6 border-t border-slate-800/80 text-left">
+            <div>
+              <p class="text-white text-xs font-semibold">92.5 Pure</p>
+              <p class="text-[10px] text-slate-500">Government Certified</p>
+            </div>
+            <div>
+              <p class="text-white text-xs font-semibold">Partial COD</p>
+              <p class="text-[10px] text-slate-500">₹1,000 Advance Only</p>
+            </div>
+            <div>
+              <p class="text-white text-xs font-semibold">Hanumangarh</p>
+              <p class="text-[10px] text-slate-500">Agarsain Chowk Store</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Display Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm rounded-2xl p-1 bg-gradient-to-b from-[#4a0812] via-slate-800 to-slate-900 shadow-2xl">
+            <div class="bg-[#0e1014] rounded-2xl p-5 space-y-4">
+              <div class="relative aspect-square rounded-xl overflow-hidden bg-slate-950">
+                <img src="https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop" alt="Silver Kada" class="w-full h-full object-cover transform hover:scale-105 transition duration-500" />
+                <span class="absolute top-3 left-3 bg-black/80 px-2.5 py-1 rounded text-[9px] uppercase font-bold tracking-widest text-amber-200 border border-amber-900/60">
+                  92.5 Hallmarked
+                </span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[9px] uppercase tracking-wider text-slate-500">Signature Collection</p>
+                  <h3 class="font-luxury text-sm font-bold text-white">Imperial Gents Silver Kada</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-base font-bold text-white">₹5,000</span>
+                  <p class="text-[9px] text-emerald-400">₹1,000 Advance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CATEGORIES SELECTION ==================== -->
+  <section id="catalogue" class="max-w-7xl mx-auto px-4 sm:px-6 pt-10">
+    <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between pb-4">
+      <div>
+        <h2 class="font-luxury text-xl sm:text-2xl font-bold tracking-wider text-white flex items-center">
+          <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-amber-400"></i> Shop By Category
+        </h2>
+        <p class="text-[11px] text-slate-400 mt-0.5">Select any category to view exclusive designs</p>
+      </div>
+
+      <!-- Quick Search Bar -->
+      <div class="relative w-full sm:w-72">
+        <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Search Rings, Kada, Payal..." class="w-full bg-[#121418] border border-slate-700/80 rounded-2xl px-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition" />
+        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3.5 top-3"></i>
+      </div>
+    </div>
+
+    <!-- Category Filter Chips -->
+    <div id="categoryContainer" class="flex gap-2 overflow-x-auto py-2 custom-scroll">
+      <!-- Injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT CATALOGUE GRID ==================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+    <div class="flex items-center justify-between mb-5">
+      <h3 id="activeCategoryHeading" class="font-luxury text-lg sm:text-xl font-bold tracking-wide text-white">All Silver Jewellery</h3>
+      <span id="productCounter" class="text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">0 items</span>
+    </div>
+
+    <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-6">
+      <!-- Dynamic Products loaded via JS -->
+    </div>
+  </main>
+
+  <!-- ==================== ABOUT & STORE INFORMATION ==================== -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 mt-20 pt-10 border-t border-slate-800/80 text-xs">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 luxury-card p-6 sm:p-8 rounded-3xl">
+      <div class="space-y-2">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-full border border-amber-500/60 bg-[#2e060c] flex items-center justify-center font-luxury font-bold text-amber-200 text-xs">AJ</div>
+          <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">AKSHAY JEWELLERS</h4>
+        </div>
+        <p class="text-slate-400 leading-relaxed text-[11px] pt-1">
+          Mochi Market, Agarsain Chowk,<br>
+          Hanumangarh, Rajasthan, India
+        </p>
+        <span class="inline-block px-2.5 py-1 rounded-md bg-slate-800 text-[10px] text-amber-300 font-medium">
+          ✓ 100% Certified 92.5 Hallmark Guarantee
+        </span>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">Direct Inquiries</h4>
+        <p class="text-slate-400 text-[11px]">For custom sizing and hallmarking details:</p>
+        <div class="space-y-1 pt-1 font-medium text-slate-200">
+          <p><a href="tel:9602378621" class="hover:text-amber-400 transition">📞 +91 9602378621</a></p>
+          <p><a href="tel:7665426149" class="hover:text-amber-400 transition">📞 +91 7665426149</a></p>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="font-luxury text-base font-bold text-white tracking-widest uppercase">Partial COD Terms</h4>
+        <p class="text-slate-400 leading-relaxed text-[11px]">
+          Example: For a ₹5,000 piece, pay ₹1,000 as booking advance and remaining ₹4,000 upon cash on delivery arrival.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center py-6 text-[11px] text-slate-500">
+      © <span id="currentYear"></span> Akshay Jewellers. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP TRIGGER ==================== -->
+  <a href="https://wa.me/919602378621?text=Hello%20Akshay%20Jewellers,%20I%20have%20an%20enquiry%20regarding%20silver%20jewellery." target="_blank" class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-3.5 rounded-full shadow-2xl transition hover:scale-110 flex items-center justify-center border-2 border-black" title="WhatsApp Chat">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <!-- ==================== CART DRAWER ==================== -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex justify-end">
+    <div class="bg-[#0b0d10] border-l border-slate-800 w-full max-w-md h-full flex flex-col p-6 overflow-y-auto">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <h3 class="font-luxury text-lg font-bold text-white flex items-center">
+          <i data-lucide="shopping-bag" class="w-4 h-4 mr-2 text-amber-400"></i> Shopping Bag
+        </h3>
+        <button onclick="toggleCartDrawer(false)" class="p-1 rounded-lg text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Items List -->
+      <div id="cartItemsList" class="flex-1 py-4 space-y-3 overflow-y-auto">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Partial COD Breakdown -->
+      <div class="border-t border-slate-800 pt-4 space-y-3 text-xs">
+        <div class="flex justify-between text-slate-300">
+          <span>Total Order Value</span>
+          <span id="cartSubtotal" class="font-bold text-white text-sm">₹0</span>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#13161c] border border-slate-800 space-y-2">
+          <div class="flex justify-between text-emerald-400 font-semibold">
+            <span>Online Advance (<span id="advanceRuleLabel">20%</span>)</span>
+            <span id="cartAdvance" class="text-sm">₹0</span>
+          </div>
+          <div class="flex justify-between text-slate-400 font-medium">
+            <span>Balance to Pay on Delivery (COD)</span>
+            <span id="cartBalance" class="text-sm">₹0</span>
+          </div>
+          <p class="text-[10px] text-slate-500 pt-1.5 border-t border-slate-800/80">
+            *Safe & verified: pay nominal token advance now, rest upon courier delivery.
+          </p>
+        </div>
+
+        <button onclick="sendOrderViaWhatsApp()" class="w-full py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-2xl text-xs flex items-center justify-center space-x-2 transition shadow-lg">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Order Confirmation Via WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== OWNER / ADMIN BACKEND PORTAL ==================== -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-[#101216] border border-slate-700/80 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+      <button onclick="closeAdminPortal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Admin Passcode View -->
+      <div id="adminLoginView" class="max-w-xs mx-auto text-center py-10 space-y-4">
+        <div class="w-12 h-12 rounded-full border border-amber-500/60 bg-[#2e060c] flex items-center justify-center mx-auto text-amber-200 font-luxury font-bold text-lg">AJ</div>
+        <h3 class="font-luxury text-lg font-bold text-white">Owner Portal Login</h3>
+        <p class="text-xs text-slate-400">Default Passcode: <code class="text-amber-300">silver925</code></p>
+        
+        <form onsubmit="handleAdminLogin(event)" class="space-y-3">
+          <input type="password" id="adminPasswordInput" placeholder="Enter owner passcode" class="w-full bg-[#171a20] border border-slate-700 rounded-xl px-3 py-2 text-white text-xs focus:outline-none" required />
+          <button type="submit" class="w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-xl text-xs transition">
+            Unlock Dashboard
+          </button>
+        </form>
+      </div>
+
+      <!-- Admin Panel View -->
+      <div id="adminDashboardView" class="hidden space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <div>
+            <h3 class="font-luxury text-lg font-bold text-white">Shop Inventory & Pricing Manager</h3>
+            <p class="text-[11px] text-slate-400">Akshay Jewellers HMO Store Backend</p>
+          </div>
+          <button onclick="logoutAdmin()" class="text-xs text-rose-400 hover:underline">Exit Portal</button>
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="p-4 rounded-2xl bg-[#14171d] border border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400">+ Add New Silver Jewellery Listing</h4>
+          <form onsubmit="handleAddNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <input type="text" id="newTitle" placeholder="Product Name (e.g. Royal Gents Bali)" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
+            <select id="newCatSelect" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-slate-300">
+              <!-- Dynamically populated -->
+            </select>
+            <input type="number" id="newPrice" placeholder="Price (₹)" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
+            <input type="url" id="newImage" placeholder="Direct Photo URL / Image Link" required class="bg-[#1b1f26] border border-slate-700 rounded-xl p-2.5 text-white" />
+            <div class="col-span-1 sm:col-span-2 flex justify-end">
+              <button type="submit" class="px-5 py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold rounded-xl text-xs">
+                Save & Publish
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Active Inventory Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-[#14171d] text-slate-400 uppercase text-[10px]">
+              <tr>
+                <th class="p-2.5">Item</th>
+                <th class="p-2.5">Category</th>
+                <th class="p-2.5">Price</th>
+                <th class="p-2.5 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminInventoryTable" class="divide-y divide-slate-800">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== APPLICATION SCRIPTS ==================== -->
+  <script>
+    // 15 Standard Silver Categories
+    const CATEGORIES = [
+      "All", "Ring", "Chain", "Locket", "Bracelet", "Kda",
+      "Payal", "Necklace", "Ladies Kda", "Earrings", "Gents Stud",
+      "Nazariya", "Baby Kda", "Gents Bali", "Mangalsutra", "Radha Krishna Lockets"
+    ];
+
+    // Master Product Catalog
+    let products = [
+      {
+        id: 1,
+        name: "Royal 92.5 Solitaire Silver Ring",
+        category: "Ring",
+        price: 2500,
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 2,
+        name: "Imperial Gents Heavy Silver Kada",
+        category: "Kda",
+        price: 5000,
+        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 3,
+        name: "Heritage Silver Payal Pair",
+        category: "Payal",
+        price: 3600,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 4,
+        name: "Italian Precision Curb Silver Chain",
+        category: "Chain",
+        price: 3200,
+        image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 5,
+        name: "Divine Radha Krishna Carved Locket",
+        category: "Radha Krishna Lockets",
+        price: 2200,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 6,
+        name: "Artisanal Ladies Floral Silver Kda",
+        category: "Ladies Kda",
+        price: 4800,
+        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 7,
+        name: "Minimalist Gents Pure Silver Bali",
+        category: "Gents Bali",
+        price: 950,
+        image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=600&auto=format&fit=crop"
+      },
+      {
+        id: 8,
+        name: "Traditional Baby Silver Kda Pair",
+        category: "Baby Kda",
+        price: 1900,
+        image: "https://images.unsplash.com/photo-1611591475806-8c4620f4c022?q=80&w=600&auto=format&fit=crop"
+      }
+    ];
+
+    let currentCategory = "All";
+    let cart = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      renderCategoryChips();
+      renderProducts();
+      populateAdminCategories();
+
+      // Auto dismiss intro splash after 2.4s
+      setTimeout(() => {
+        dismissSplash();
+      }, 2400);
+
+      lucide.createIcons();
+    });
+
+    function dismissSplash() {
+      const splash = document.getElementById('splashScreen');
+      if (splash) {
+        splash.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => splash.remove(), 900);
+      }
+    }
+
+    function focusSearch() {
+      const el = document.getElementById('searchInput');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.focus();
+    }
+
+    function renderCategoryChips() {
+      const container = document.getElementById('categoryContainer');
+      container.innerHTML = CATEGORIES.map(cat => `
+        <button onclick="setCategory('${cat}')" class="whitespace-nowrap px-4 py-2 rounded-2xl text-xs transition duration-200 border ${
+          currentCategory === cat
+          ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold border-amber-300 shadow-md'
+          : 'bg-[#121418] text-slate-300 border-slate-800 hover:border-slate-600'
+        }">
+          ${cat}
+        </button>
+      `).join('');
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      renderCategoryChips();
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+      const grid = document.getElementById('productGrid');
+      const counter = document.getElementById('productCounter');
+      const heading = document.getElementById('activeCategoryHeading');
+
+      heading.textContent = currentCategory === "All" ? "All Silver Jewellery" : `${currentCategory} Collection`;
+
+      const list = products.filter(p => {
+        const matchesCategory = (currentCategory === "All" || p.category === currentCategory);
+        const matchesSearch = p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+      });
+
+      counter.textContent = `${list.length} item(s)`;
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-500 text-xs">
+            <i data-lucide="package-open" class="w-8 h-8 mx-auto mb-2 opacity-40"></i>
+            No silver jewellery found in this category.
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      grid.innerHTML = list.map(item => {
+        const advance = Math.round(item.price * 0.20);
+        const cod = item.price - advance;
+
+        return `
+          <div class="luxury-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="relative aspect-square overflow-hidden bg-slate-950">
+                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transform hover:scale-105 transition duration-500" />
+                <span class="absolute top-2.5 left-2.5 bg-black/80 px-2 py-0.5 rounded-md text-[9px] uppercase font-bold tracking-wider text-amber-200 border border-amber-900/60">
+                  92.5 Silver
+                </span>
+              </div>
+              <div class="p-3.5 sm:p-4">
+                <span class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">${item.category}</span>
+                <h4 class="font-luxury text-sm sm:text-base font-bold text-white truncate mt-0.5">${item.name}</h4>
+                <p class="text-sm sm:text-base font-bold text-white mt-1">₹${item.price.toLocaleString('en-IN')}</p>
+                
+                <!-- Partial COD Badge -->
+                <div class="mt-2.5 p-2 rounded-xl bg-black/40 border border-slate-800 text-[10px] space-y-0.5">
+                  <p class="text-emerald-400 font-medium">Advance: <strong>₹${advance}</strong></p>
+                  <p class="text-slate-400">Balance on COD: ₹${cod}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 sm:p-4 pt-0 grid grid-cols-2 gap-2">
+              <button onclick="addToCart(${item.id})" class="py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-[11px] font-medium flex items-center justify-center space-x-1 transition">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                <span>Add Bag</span>
+              </button>
+              <button onclick="enquireItemOnWhatsApp(${item.id})" class="py-2.5 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-700/60 text-emerald-400 rounded-xl text-[11px] font-medium flex items-center justify-center space-x-1 transition">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <span>Enquiry</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Cart Engine
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(c => c.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(c => c.id !== id);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      document.getElementById('cartCountBadge').textContent = totalCount;
+
+      const list = document.getElementById('cartItemsList');
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const advance = Math.round(subtotal * 0.20);
+      const balance = subtotal - advance;
+
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="h-44 flex flex-col items-center justify-center text-slate-500 text-xs">
+            <i data-lucide="shopping-bag" class="w-7 h-7 mb-2 opacity-30"></i>
+            Your shopping bag is empty.
+          </div>
+        `;
+      } else {
+        list.innerHTML = cart.map(i => `
+          <div class="flex items-center justify-between p-3 rounded-2xl bg-[#14171d] border border-slate-800 text-xs">
+            <div>
+              <p class="font-semibold text-white truncate max-w-[170px]">${i.name}</p>
+              <p class="text-slate-400 text-[11px] mt-0.5">₹${i.price} × ${i.qty}</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button onclick="changeQty(${i.id}, -1)" class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">-</button>
+              <span class="font-bold text-white text-xs">${i.qty}</span>
+              <button onclick="changeQty(${i.id}, 1)" class="w-6 h-6 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">+</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('cartSubtotal').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+      document.getElementById('cartAdvance').textContent = `₹${advance.toLocaleString('en-IN')}`;
+      document.getElementById('cartBalance').textContent = `₹${balance.toLocaleString('en-IN')}`;
+      lucide.createIcons();
+    }
+
+    function toggleCartDrawer(show) {
+      const modal = document.getElementById('cartDrawer');
+      if (show) modal.classList.remove('hidden');
+      else modal.classList.add('hidden');
+    }
+
+    function enquireItemOnWhatsApp(id) {
+      const item = products.find(p => p.id === id);
+      if (!item) return;
+
+      const advance = Math.round(item.price * 0.20);
+      const cod = item.price - advance;
+
+      const text = encodeURIComponent(
+        `Hello Akshay Jewellers HMO,\nI am interested in this 92.5 Silver product:\n\n` +
+        `• Product: ${item.name} (${item.category})\n` +
+        `• Total Price: ₹${item.price}\n` +
+        `• Partial COD: ₹${advance} Advance | ₹${cod} Balance on COD\n\n` +
+        `Please share more real pictures and confirmation details.`
+      );
+      window.open(`https://wa.me/919602378621?text=${text}`, '_blank');
+    }
+
+    function sendOrderViaWhatsApp() {
+      if (cart.length === 0) return alert('Please add silver jewellery to your bag first.');
+
+      const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const advance = Math.round(subtotal * 0.20);
+      const balance = subtotal - advance;
+      const itemList = cart.map(i => `- ${i.name} (Qty: ${i.qty}) = ₹${i.price * i.qty}`).join('\n');
+
+      const text = encodeURIComponent(
+        `*NEW ORDER - AKSHAY JEWELLERS HMO*\n` +
+        `Mochi Market, Agarsain Chowk\n\n` +
+        `*Selected Items:*\n${itemList}\n\n` +
+        `*Total Order Value:* ₹${subtotal}\n` +
+        `*Online Booking Advance (20%):* ₹${advance}\n` +
+        `*Balance COD on Delivery:* ₹${balance}\n\n` +
+        `Please confirm this order and send the advance payment QR.`
+      );
+      window.open(`https://wa.me/919602378621?text=${text}`, '_blank');
+    }
+
+    // Owner Backend Portal Handlers
+    function openAdminPortal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+    function closeAdminPortal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('adminPasswordInput').value;
+      if (pass === 'silver925' || pass === 'admin123') {
+        document.getElementById('adminLoginView').classList.add('hidden');
+        document.getElementById('adminDashboardView').classList.remove('hidden');
+        renderAdminTable();
+      } else {
+        alert("Invalid Passcode. Use 'silver925'");
+      }
+    }
+    function logoutAdmin() {
+      document.getElementById('adminPasswordInput').value = '';
+      document.getElementById('adminLoginView').classList.remove('hidden');
+      document.getElementById('adminDashboardView').classList.add('hidden');
+    }
+    function populateAdminCategories() {
+      const sel = document.getElementById('newCatSelect');
+      sel.innerHTML = CATEGORIES.filter(c => c !== "All").map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+    function handleAddNewProduct(e) {
+      e.preventDefault();
+      const newP = {
+        id: Date.now(),
+        name: document.getElementById('newTitle').value,
+        category: document.getElementById('newCatSelect').value,
+        price: Number(document.getElementById('newPrice').value),
+        image: document.getElementById('newImage').value
+      };
+      products.unshift(newP);
+      e.target.reset();
+      renderAdminTable();
+      renderProducts();
+      alert("Product published successfully to catalogue!");
+    }
+    function deleteProduct(id) {
+      if (confirm("Delete this jewellery item?")) {
+        products = products.filter(p => p.id !== id);
+        renderAdminTable();
+        renderProducts();
+      }
+    }
+    function renderAdminTable() {
+      const tbody = document.getElementById('adminInventoryTable');
+      tbody.innerHTML = products.map(p => `
+        <tr>
+          <td class="p-2.5 font-medium text-white flex items-center space-x-2">
+            <img src="${p.image}" class="w-8 h-8 rounded-lg object-cover" />
+            <span class="truncate max-w-[150px]">${p.name}</span>
+          </td>
+          <td class="p-2.5">${p.category}</td>
+          <td class="p-2.5 font-bold text-white">₹${p.price.toLocaleString('en-IN')}</td>
+          <td class="p-2.5 text-right">
+            <button onclick="deleteProduct(${p.id})" class="text-rose-400 hover:underline">Remove</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
